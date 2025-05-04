@@ -46,6 +46,7 @@ const deleteCategory = async (categoryId: string) => {
     await deleteDoc(categoryRef);
 };
 
+// Cleaned list of default categories based on user request
 const defaultCategories = [
     "Utilities", "Debt", "Groceries", "Insurance", "Health care", "Transportation",
     "Housing", "Savings", "Entertainment", "Personal care", "Property taxes",
@@ -165,7 +166,7 @@ export function CategoryList() {
                                         <AlertDialogAction
                                         onClick={() => handleDelete(category.id)}
                                         className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                                        disabled={mutation.isPending} // Disable button while deleting
+                                        disabled={mutation.isPending && mutation.variables === category.id} // Disable button while deleting this specific category
                                         >
                                         {mutation.isPending && mutation.variables === category.id ? 'Deleting...' : 'Delete'}
                                         </AlertDialogAction>
