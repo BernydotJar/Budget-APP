@@ -22,6 +22,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from '@/components/ui/skeleton';
+import { CategoryCombobox } from '@/components/categories/category-combobox'; // Import the new Combobox
 
 
 // Zod schema for form validation
@@ -282,33 +283,19 @@ export function TransactionForm({ transactionId }: TransactionFormProps) {
                             )}
                             />
 
-                         {/* Category Dropdown */}
+                        {/* Category Combobox */}
                         <FormField
                             control={form.control}
                             name="categoryId"
                             render={({ field }) => (
-                                <FormItem>
+                                <FormItem className="flex flex-col">
                                     <FormLabel>Category</FormLabel>
-                                    <Select onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
-                                        <FormControl>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Select a category" />
-                                        </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                        {isLoadingCategories ? (
-                                            <SelectItem value="loading" disabled>Loading...</SelectItem>
-                                         ) : categories.length === 0 ? (
-                                              <SelectItem value="no-categories" disabled>No categories found. Add one!</SelectItem>
-                                         ) : (
-                                            categories.map((category) => (
-                                                <SelectItem key={category.id} value={category.id}>
-                                                {category.name}
-                                                </SelectItem>
-                                            ))
-                                         )}
-                                        </SelectContent>
-                                    </Select>
+                                    <CategoryCombobox
+                                        categories={categories}
+                                        isLoading={isLoadingCategories}
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    />
                                     <FormMessage />
                                 </FormItem>
                             )}
