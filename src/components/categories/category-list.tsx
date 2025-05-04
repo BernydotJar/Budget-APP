@@ -115,7 +115,7 @@ export function CategoryList() {
                 <CardDescription>View, edit, or delete your expense and income categories.</CardDescription>
             </CardHeader>
             <CardContent>
-                {categories.length === 0 && !isLoading && !error ? (
+                {categories.length === 0 ? ( // Conditionally render based on categories length
                      <div className="space-y-4">
                          <Alert>
                            <Info className="h-4 w-4" />
@@ -144,7 +144,7 @@ export function CategoryList() {
                                 )}
                                 <span className="font-medium">{category.name}</span>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-1"> {/* Reduced gap for buttons */}
                                 <EditCategoryDialog category={category} />
                                 <AlertDialog>
                                     <AlertDialogTrigger asChild>
@@ -165,8 +165,9 @@ export function CategoryList() {
                                         <AlertDialogAction
                                         onClick={() => handleDelete(category.id)}
                                         className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                                        disabled={mutation.isPending} // Disable button while deleting
                                         >
-                                        Delete
+                                        {mutation.isPending && mutation.variables === category.id ? 'Deleting...' : 'Delete'}
                                         </AlertDialogAction>
                                     </AlertDialogFooter>
                                     </AlertDialogContent>
