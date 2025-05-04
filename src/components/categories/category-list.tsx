@@ -7,7 +7,7 @@ import { db } from '@/firebase';
 import { useAuth } from '@/components/auth/auth-provider';
 import type { Category } from '@/types';
 import { Button } from '@/components/ui/button';
-import { Trash2, Pencil } from 'lucide-react';
+import { Trash2, Pencil, Info } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Terminal } from "lucide-react";
@@ -45,6 +45,15 @@ const deleteCategory = async (categoryId: string) => {
     const categoryRef = doc(db, 'categories', categoryId);
     await deleteDoc(categoryRef);
 };
+
+const defaultCategories = [
+    "Utilities", "Debt", "Groceries", "Insurance", "Health care", "Transportation",
+    "Housing", "Savings", "Entertainment", "Personal care", "Property taxes",
+    "Childcare", "Clothing", "Home maintenance", "Education", "House expenses",
+    "Payroll", "Rent", "Business fees", "Charitable giving", "Travel",
+    "Food expenses", "Mortgage payments"
+];
+
 
 export function CategoryList() {
     const { user } = useAuth();
@@ -106,15 +115,32 @@ export function CategoryList() {
                 <CardDescription>View, edit, or delete your expense and income categories.</CardDescription>
             </CardHeader>
             <CardContent>
-                {categories.length === 0 ? (
-                     <p className="text-muted-foreground text-center py-4">No categories found. Add your first category!</p>
+                {categories.length === 0 && !isLoading && !error ? (
+                     <div className="space-y-4">
+                         <Alert>
+                           <Info className="h-4 w-4" />
+                           <AlertTitle>No Categories Yet!</AlertTitle>
+                           <AlertDescription>
+                              You haven't added any categories. Use the "Add Category" button to create your own, or get started with these suggestions:
+                           </AlertDescription>
+                         </Alert>
+                        <ul className="space-y-3 border rounded-lg p-4 max-h-60 overflow-y-auto">
+                            {defaultCategories.map((name, index) => (
+                                <li key={index} className="flex items-center justify-between p-2 rounded-md bg-secondary/30">
+                                    <span className="font-medium text-sm text-muted-foreground">{name}</span>
+                                    {/* Optional: Add a button to quickly add this default category */}
+                                    {/* <Button size="sm" variant="ghost" className="text-xs h-6">Add</Button> */}
+                                </li>
+                            ))}
+                        </ul>
+                     </div>
                 ) : (
                 <ul className="space-y-3">
                     {categories.map((category) => (
                         <li key={category.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-secondary/50 transition-colors">
                             <div className="flex items-center gap-3">
                                 {category.color && (
-                                     <span className="h-4 w-4 rounded-full" style={{ backgroundColor: category.color }}></span>
+                                     <span className="h-4 w-4 rounded-full border" style={{ backgroundColor: category.color }}></span>
                                 )}
                                 <span className="font-medium">{category.name}</span>
                             </div>
