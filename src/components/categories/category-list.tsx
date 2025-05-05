@@ -74,6 +74,7 @@ export function CategoryList() {
             queryClient.invalidateQueries({ queryKey: ['categories', user?.uid] });
              // Invalidate other queries that might depend on categories if necessary
              queryClient.invalidateQueries({ queryKey: ['transactions', user?.uid] });
+             queryClient.invalidateQueries({ queryKey: ['dashboardMetrics', user?.uid] });
              queryClient.invalidateQueries({ queryKey: ['expenseChartData', user?.uid] });
              queryClient.invalidateQueries({ queryKey: ['reportData', user?.uid] });
             toast({ title: "Category Deleted", description: "The category has been successfully removed." });
