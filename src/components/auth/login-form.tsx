@@ -21,6 +21,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { useRouter } from 'next/navigation';
 
 // Define Google Icon as SVG component
 const GoogleIcon = () => (
@@ -46,6 +47,7 @@ export function LoginForm() {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
+  const router = useRouter();
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(formSchema),
@@ -62,11 +64,11 @@ export function LoginForm() {
       if (isLogin) {
         await signInWithEmailAndPassword(auth, values.email, values.password);
         toast({ title: "Login Successful", description: "Welcome back!" });
-        // Redirect is handled by the AuthGuard or page logic
+        router.push('/dashboard');
       } else {
         await createUserWithEmailAndPassword(auth, values.email, values.password);
         toast({ title: "Sign Up Successful", description: "Welcome to BudgetFlow!" });
-         // Automatically logs in the user after signup, redirect handled elsewhere
+        router.push('/dashboard');
       }
     } catch (err: any) {
       setError(err.message);
@@ -87,7 +89,7 @@ export function LoginForm() {
     try {
       await signInWithPopup(auth, provider);
       toast({ title: "Google Sign-In Successful", description: "Welcome!" });
-      // Redirect is handled by the AuthGuard or page logic
+      router.push('/dashboard');
     } catch (err: any) {
       setError(err.message);
        toast({
