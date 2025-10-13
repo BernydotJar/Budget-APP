@@ -12,7 +12,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '@/firebase';
+import { auth, db } from '@/firebase';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -22,6 +23,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useRouter } from 'next/navigation';
+import { subDays, startOfMonth, endOfMonth } from 'date-fns';
 
 // Define Google Icon as SVG component
 const GoogleIcon = () => (
@@ -33,13 +35,99 @@ const GoogleIcon = () => (
   </svg>
 );
 
-
 const formSchema = z.object({
   email: z.string().email({ message: 'Invalid email address.' }),
   password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
 });
 
 type LoginFormValues = z.infer<typeof formSchema>;
+
+// --- DUMMY DATA SETUP ---
+const dummyCategories = [
+    { name: 'Groceries', color: '#FFC107' },
+    { name: 'Salary', color: '#4CAF50' },
+    { name: 'Utilities', color: '#2196F3' },
+    { name: 'Rent', color: '#F44336' },
+    { name: 'Entertainment', color: '#9C27B0' },
+    { name: 'Transportation', color: '#795548' },
+    { name: 'Health', color: '#E91E63' },
+    { name: 'Shopping', color: '#607D8B' },
+    { name: 'Travel', color: '#009688' },
+    { name: 'Food Delivery', color: '#FF9800' },
+];
+
+const addDummyData = async (userId: string) => {
+    try {
+        console.log("Starting to add dummy data for user:", userId);
+        // 1. Add dummy categories and get their new document IDs
+        const categoryDocs = await Promise.all(
+            dummyCategories.map(cat => addDoc(collection(db, 'categories'), { ...cat, userId }))
+        );
+        const categoryIdMap = new Map(dummyCategories.map((cat, i) => [cat.name, categoryDocs[i].id]));
+        console.log("Dummy categories added:", categoryIdMap);
+
+        // 2. Create a list of dummy transactions
+        const now = new Date();
+        const transactionsToAdd = [];
+        const descriptions = {
+            Groceries: ['SuperMart', 'Local Grocer', 'Farm Fresh'],
+            Salary: ['Monthly Paycheck', 'Project Bonus'],
+            Utilities: ['Electricity Bill', 'Internet Bill', 'Water Bill'],
+            Rent: ['Monthly Rent Payment'],
+            Entertainment: ['Movie Tickets', 'Concert', 'Streaming Service'],
+            Transportation: ['Gas Station', 'Train Ticket', 'Bus Fare'],
+            Health: ['Pharmacy', 'Doctors Visit'],
+            Shopping: ['New Clothes', 'Electronics Store', 'Bookstore'],
+            Travel: ['Flight tickets', 'Hotel booking'],
+            FoodDelivery: ['Pizza Night', 'Sushi Delivery'],
+        };
+
+        // Generate transactions for the last 3 months
+        for (let month = 0; month < 3; month++) {
+            const date = subDays(now, month * 30);
+            
+            // Income
+            transactionsToAdd.push({
+                type: 'income',
+                amount: 3500 + Math.random() * 500,
+                categoryId: categoryIdMap.get('Salary'),
+                description: descriptions.Salary[month % descriptions.Salary.length],
+                date: subDays(date, 5)
+            });
+
+            // Expenses
+            for (const cat of dummyCategories) {
+                if (cat.name !== 'Salary') {
+                     for (let i = 0; i < (Math.random() * 3) + 1; i++) { // 1-4 transactions per category per month
+                        transactionsToAdd.push({
+                            type: 'expense',
+                            amount: Math.round((Math.random() * 100 + 10) * 100) / 100, // 10-110
+                            categoryId: categoryIdMap.get(cat.name),
+                            description: descriptions[cat.name as keyof typeof descriptions][i % descriptions[cat.name as keyof typeof descriptions].length],
+                            date: subDays(date, Math.floor(Math.random() * 28)) // Random day within the month
+                        });
+                    }
+                }
+            }
+        }
+
+        console.log(`Adding ${transactionsToAdd.length} dummy transactions.`);
+        // 3. Add all transactions to Firestore
+        await Promise.all(
+            transactionsToAdd.map(t => addDoc(collection(db, 'transactions'), {
+                ...t,
+                userId,
+                date: Timestamp.fromDate(t.date)
+            }))
+        );
+        console.log("Dummy data successfully added.");
+    } catch (error) {
+        console.error("Error adding dummy data: ", error);
+        // Optionally show a toast to the user
+        // toast({ variant: "destructive", title: "Could not add sample data", description: error.message });
+    }
+};
+
 
 export function LoginForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -66,8 +154,14 @@ export function LoginForm() {
         toast({ title: "Login Successful", description: "Welcome back!" });
         router.push('/dashboard');
       } else {
-        await createUserWithEmailAndPassword(auth, values.email, values.password);
-        toast({ title: "Sign Up Successful", description: "Welcome to BudgetFlow!" });
+        const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+        const user = userCredential.user;
+        toast({ title: "Sign Up Successful", description: "Adding some sample data for you..." });
+        
+        // Add dummy data for the new user
+        await addDummyData(user.uid);
+        
+        toast({ title: "Welcome to BudgetFlow!", description: "Sample data has been added to get you started." });
         router.push('/dashboard');
       }
     } catch (err: any) {
@@ -89,6 +183,8 @@ export function LoginForm() {
     try {
       await signInWithPopup(auth, provider);
       toast({ title: "Google Sign-In Successful", description: "Welcome!" });
+      // Here you might want to check if the user is new and add dummy data.
+      // For simplicity, we'll skip that for Google Sign-In for now.
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message);
@@ -185,3 +281,5 @@ export function LoginForm() {
     </div>
   );
 }
+
+    
