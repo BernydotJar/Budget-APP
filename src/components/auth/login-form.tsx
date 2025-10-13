@@ -1,3 +1,4 @@
+
 // src/components/auth/login-form.tsx
 'use client';
 
@@ -49,8 +50,8 @@ export function LoginForm() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: 'eduardo.sacahui@gmail.com',
-      password: '123456',
+      email: 'user@example.com',
+      password: 'password',
     },
   });
 
