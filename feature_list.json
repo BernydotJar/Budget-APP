@@ -4,7 +4,7 @@
     "title": "Dashboard Evidence-First UX Refinement",
     "codename": "Silver Ledger",
     "mode": "SHIP",
-    "status": "in_progress",
+    "status": "review",
     "summary": "Refine the BudgetFlow dashboard so monthly financial evidence is easier to understand, empty states are explicit, and placeholders are removed before implementation.",
     "source_of_truth": {
       "requirements": "specs/001-dashboard-evidence-first-ux-refinement/requirements.md",
