@@ -52,3 +52,28 @@ Implementation summary:
 Boundaries preserved: package files, env/secrets, Firebase configuration, AI/Genkit runtime, migrations/schema, auth behavior, transaction form behavior, and Firestore query semantics were not changed.
 
 Next gate: run local verification and capture review evidence before moving to done.
+
+### 003-transactions-evidence-first-ux-refinement
+
+Status: done
+Mode: SHIP
+Codename: Clear Ledger
+
+Completed and validated the Transactions evidence-first UX refinement.
+
+Validation reported locally:
+
+```bash
+npm run typecheck
+npm run build
+```
+
+Result: passed.
+
+Final runtime files changed:
+
+- src/app/transactions/page.tsx
+- src/components/transactions/transaction-list.tsx
+- src/components/transactions/transaction-list-skeleton.tsx
+
+Boundaries preserved: package files, env/secrets, Firebase configuration, AI/Genkit runtime, migrations/schema, auth behavior, transaction form behavior, and Firestore query semantics were not changed.
