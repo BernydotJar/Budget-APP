@@ -3,14 +3,14 @@
 Active feature: 001-dashboard-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: in_progress
+Status: review
 Codename: Silver Ledger
 
 ## Summary
 
-Implementation is approved for the dashboard evidence-first UX refinement.
+Dashboard implementation is complete and ready for local review.
 
-The active implementation is limited to the dashboard experience and harness bookkeeping. The goal is to improve current-month financial clarity without fabricating unsupported insights or changing data contracts.
+The feature refined the current-month dashboard information hierarchy, removed placeholder metric content, improved the expense chart empty/error states, and aligned the skeleton with the rendered dashboard content.
 
 ## Source of truth
 
@@ -21,16 +21,16 @@ The active implementation is limited to the dashboard experience and harness boo
 - progress/current.md
 - progress/history.md
 
-## Approved runtime scope
+## Runtime files changed
 
 - src/app/dashboard/page.tsx
 - src/components/dashboard/dashboard-metrics.tsx
 - src/components/dashboard/expense-chart.tsx
 - src/components/dashboard/dashboard-skeleton.tsx
 
-## Boundaries
+## Boundaries preserved
 
-Do not touch:
+Not touched:
 
 - package files
 - env or secrets
@@ -42,15 +42,15 @@ Do not touch:
 
 ## Verification target
 
-Run before review when local environment is available:
+Run locally:
 
 ```bash
 npm run typecheck
 npm run build
 ```
 
-Known baseline note: this repository currently has no `npm run test` script.
+Known baseline note: this repository currently has no `npm run test` script. A previous build attempt also surfaced an existing build blocker under `/transactions/new/page`, outside this feature scope.
 
 ## Next gate
 
-Move to review after the dashboard implementation is complete and the diff is checked against scope.
+Review the implementation and validation output. Move to done only after review evidence is captured.
