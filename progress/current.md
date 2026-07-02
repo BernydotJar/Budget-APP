@@ -3,12 +3,12 @@
 Active feature: 003-transactions-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: spec_ready
+Status: in_progress
 Codename: Clear Ledger
 
 ## Summary
 
-Opened a focused Transactions UX refinement feature.
+Implementation approved and started for the Transactions UX refinement.
 
 The feature is scoped to making the Transactions screen clearer, more modern, and more useful while preserving current transaction behavior and Firestore query semantics.
 
@@ -21,21 +21,13 @@ The feature is scoped to making the Transactions screen clearer, more modern, an
 - progress/current.md
 - progress/history.md
 
-## Current evidence inspected
-
-- src/app/transactions/page.tsx
-- src/components/transactions/transaction-list.tsx
-- src/components/transactions/transaction-list-skeleton.tsx
-
-## Candidate runtime scope after approval
+## Runtime scope
 
 - src/app/transactions/page.tsx
 - src/components/transactions/transaction-list.tsx
 - src/components/transactions/transaction-list-skeleton.tsx
 
 ## Boundaries
-
-Do not touch runtime code until approved.
 
 Do not touch:
 
@@ -46,8 +38,11 @@ Do not touch:
 - migrations or schema
 - auth behavior
 - transaction form behavior
-- Firestore query semantics unless explicitly approved
+- Firestore query semantics
 
-## Next gate
+## Validation target
 
-Approved: 003-transactions-evidence-first-ux-refinement for implementation in SHIP mode.
+```bash
+npm run typecheck
+npm run build
+```
