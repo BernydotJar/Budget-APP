@@ -3,7 +3,7 @@
 Feature: Transactions Evidence-First UX Refinement
 Codename: Clear Ledger
 Mode: SHIP
-Status: review
+Status: done
 
 ## Spec gate
 
@@ -41,7 +41,18 @@ Approved: 003-transactions-evidence-first-ux-refinement for implementation in SH
 
 - [x] Verify changed runtime files are inside approved scope.
 - [x] Verify no package/env/Firebase/auth/schema/AI files changed.
-- [ ] Run `npm run typecheck`.
-- [ ] Run `npm run build`.
-- [ ] Capture review evidence.
-- [ ] Move feature to done only after validation passes.
+- [x] Run `npm run typecheck`.
+- [x] Run `npm run build`.
+- [x] Capture review evidence.
+- [x] Move feature to done only after validation passes.
+
+## Validation result
+
+Local validation reported by Eduardo:
+
+```bash
+npm run typecheck
+npm run build
+```
+
+Result: passed.
