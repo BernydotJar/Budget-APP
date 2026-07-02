@@ -1,27 +1,27 @@
 # Current Progress
 
-Active feature: 003-transactions-evidence-first-ux-refinement
-
-Mode: SHIP
-Status: review
-Codename: Clear Ledger
+Active feature: none
 
 ## Summary
 
-Transactions UX refinement implementation is complete and ready for local review.
+The current SHIP cycle is validated.
 
-The screen now has clearer page hierarchy, explicit evidence framing, client-side type filter affordances, improved empty/error states, a more legible transaction table, and a skeleton aligned with the rendered layout.
+Completed feature:
 
-## Source of truth
+- 003-transactions-evidence-first-ux-refinement
 
-- feature_list.json
-- specs/003-transactions-evidence-first-ux-refinement/requirements.md
-- specs/003-transactions-evidence-first-ux-refinement/design.md
-- specs/003-transactions-evidence-first-ux-refinement/tasks.md
-- progress/current.md
-- progress/history.md
+## Validation evidence
 
-## Runtime files changed
+Local validation reported by Eduardo:
+
+```bash
+npm run typecheck
+npm run build
+```
+
+Result: passed.
+
+## Runtime files changed in this cycle
 
 - src/app/transactions/page.tsx
 - src/components/transactions/transaction-list.tsx
@@ -40,15 +40,6 @@ Not touched:
 - transaction form behavior
 - Firestore query semantics
 
-## Verification target
-
-Run locally:
-
-```bash
-npm run typecheck
-npm run build
-```
-
 ## Next gate
 
-Review the implementation and validation output. Move to done only after review evidence is captured.
+Open the next feature from a new spec before changing runtime code.
