@@ -43,3 +43,19 @@ Harness files updated:
 Boundaries preserved: package files, env/secrets, Firebase config, AI/Genkit runtime, migrations/schema, auth behavior, and unrelated runtime files were not touched.
 
 Next gate: run local verification and produce review notes before moving to done.
+
+### 002-fix-next15-edit-transaction-page-props
+
+Status: spec_ready
+Mode: SHIP
+Codename: Typed Route
+
+Opened a focused feature for the Next.js 15 PageProps typecheck blocker on `/transactions/edit/[id]`.
+
+Created source-of-truth spec files. No runtime code was changed.
+
+Next gate:
+
+```txt
+Approved: 002-fix-next15-edit-transaction-page-props for implementation in SHIP mode.
+```
