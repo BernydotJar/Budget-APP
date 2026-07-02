@@ -2,13 +2,11 @@ import { AuthGuard } from '@/components/auth/auth-guard';
 import { TransactionForm } from '@/components/transactions/transaction-form';
 
 interface EditTransactionPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
-export default function EditTransactionPage({ params }: EditTransactionPageProps) {
-  const { id } = params;
+export default async function EditTransactionPage({ params }: EditTransactionPageProps) {
+  const { id } = await params;
 
   return (
     <AuthGuard>
