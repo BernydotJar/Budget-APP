@@ -1,0 +1,17 @@
+[
+  {
+    "id": "003-transactions-evidence-first-ux-refinement",
+    "title": "Transactions Evidence-First UX Refinement",
+    "codename": "Clear Ledger",
+    "mode": "SHIP",
+    "status": "spec_ready",
+    "summary": "Refine the Transactions screen so transaction evidence is clearer, empty states are explicit, filters are easier to understand, the table is more legible, and primary actions are consistently placed.",
+    "source_of_truth": {
+      "requirements": "specs/003-transactions-evidence-first-ux-refinement/requirements.md",
+      "design": "specs/003-transactions-evidence-first-ux-refinement/design.md",
+      "tasks": "specs/003-transactions-evidence-first-ux-refinement/tasks.md",
+      "current": "progress/current.md",
+      "history": "progress/history.md"
+    }
+  }
+]
