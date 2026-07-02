@@ -3,11 +3,19 @@
 Active feature: 004-reports-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: spec_ready
+Status: in_progress
 Codename: Signal Report
 
-Runtime code has not been changed.
+Implementation approved and started.
 
-Next gate:
+Runtime scope:
 
-Approved: 004-reports-evidence-first-ux-refinement for implementation in SHIP mode.
+- src/app/reports/page.tsx
+- src/components/reports/report-generator.tsx
+- src/components/reports/report-skeleton.tsx
+- src/components/reports/report-pie-chart.tsx only if needed
+
+Validation target:
+
+- npm run typecheck
+- npm run build
