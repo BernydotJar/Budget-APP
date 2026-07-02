@@ -3,7 +3,7 @@
 Feature: Dashboard Evidence-First UX Refinement
 Codename: Silver Ledger
 Mode: SHIP
-Status: spec_ready
+Status: review
 
 ## Spec gate
 
@@ -13,12 +13,12 @@ Status: spec_ready
 - [x] Create design.md.
 - [x] Create tasks.md.
 - [x] Update feature_list.json.
-- [ ] Update progress/current.md.
-- [ ] Append progress/history.md.
+- [x] Update progress/current.md.
+- [x] Append progress/history.md.
 
 ## Approval gate
 
-Required human approval phrase before implementation:
+Approval received:
 
 ```txt
 Approved: 001-dashboard-evidence-first-ux-refinement for implementation in SHIP mode.
@@ -26,18 +26,18 @@ Approved: 001-dashboard-evidence-first-ux-refinement for implementation in SHIP 
 
 ## Implementation tasks after approval
 
-- [ ] Confirm local branch and clean status.
-- [ ] Re-read source of truth files.
-- [ ] Refine `src/app/dashboard/page.tsx` hierarchy and scope copy.
-- [ ] Replace placeholder metric card in `src/components/dashboard/dashboard-metrics.tsx`.
-- [ ] Improve `src/components/dashboard/expense-chart.tsx` empty/error state copy without changing query semantics.
-- [ ] Align `src/components/dashboard/dashboard-skeleton.tsx` with final layout.
-- [ ] Add or update tests only if the existing test setup supports dashboard rendering.
+- [x] Confirm local branch and clean status.
+- [x] Re-read source of truth files.
+- [x] Refine `src/app/dashboard/page.tsx` hierarchy and scope copy.
+- [x] Replace placeholder metric card in `src/components/dashboard/dashboard-metrics.tsx`.
+- [x] Improve `src/components/dashboard/expense-chart.tsx` empty/error state copy without changing query semantics.
+- [x] Align `src/components/dashboard/dashboard-skeleton.tsx` with final layout.
+- [x] Add or update tests only if the existing test setup supports dashboard rendering. No test script exists in package.json, so no tests were added in this pass.
 
 ## Review tasks after implementation
 
-- [ ] Verify changed files are inside approved scope.
-- [ ] Verify no package/env/migration/auth/AI files changed.
+- [x] Verify changed files are inside approved scope.
+- [x] Verify no package/env/migration/auth/AI files changed.
 - [ ] Run `npm run typecheck`.
 - [ ] Run `npm run build`.
 - [ ] Produce review notes.
