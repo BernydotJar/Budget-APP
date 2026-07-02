@@ -1,35 +1,38 @@
 # Current Progress
 
-Active feature: 002-fix-next15-edit-transaction-page-props
-
-Mode: SHIP
-Status: spec_ready
-Codename: Typed Route
+Active feature: none
 
 ## Summary
 
-Opened a focused feature to resolve the Next.js 15 PageProps typecheck blocker for the dynamic edit transaction route.
+The current SHIP cycle is validated.
 
-This feature is intentionally limited to specification and harness bookkeeping until explicitly approved. Runtime implementation must not start before approval.
+Completed features:
 
-## Source of truth
+- 001-dashboard-evidence-first-ux-refinement
+- 002-fix-next15-edit-transaction-page-props
 
-- feature_list.json
-- specs/002-fix-next15-edit-transaction-page-props/requirements.md
-- specs/002-fix-next15-edit-transaction-page-props/design.md
-- specs/002-fix-next15-edit-transaction-page-props/tasks.md
-- progress/current.md
-- progress/history.md
+## Validation evidence
 
-## Candidate runtime scope after approval
+Local validation reported by Eduardo:
 
+```bash
+npm run typecheck
+npm run build
+```
+
+Result: passed.
+
+## Runtime files changed in this cycle
+
+- src/app/dashboard/page.tsx
+- src/components/dashboard/dashboard-metrics.tsx
+- src/components/dashboard/expense-chart.tsx
+- src/components/dashboard/dashboard-skeleton.tsx
 - src/app/transactions/edit/[id]/page.tsx
 
-## Boundaries
+## Boundaries preserved
 
-Do not touch runtime code until approved.
-
-Do not touch:
+Not touched:
 
 - package files
 - env or secrets
@@ -37,8 +40,7 @@ Do not touch:
 - AI or Genkit runtime
 - migrations or schema
 - auth behavior
-- transaction business logic beyond the route props fix
 
 ## Next gate
 
-Approved: 002-fix-next15-edit-transaction-page-props for implementation in SHIP mode.
+Open the next feature from a new spec before changing runtime code.
