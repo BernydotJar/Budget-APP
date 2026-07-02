@@ -6,7 +6,7 @@ Codename: Silver Ledger
 
 ## Review summary
 
-Dashboard implementation matches the approved feature scope, but the feature cannot be marked done yet because repository-level validation does not pass. The reported failures are outside the runtime files modified by this feature.
+Dashboard implementation matches the approved feature scope. Local build now passes after `.env.local` was configured. The feature cannot be marked done yet because repository-level typecheck still fails on an existing transaction form type issue outside the dashboard scope.
 
 ## Runtime files reviewed
 
@@ -42,14 +42,17 @@ npm run typecheck
 
 Result: failed.
 
-Failures reported outside this feature scope:
+Current remaining failure reported outside this feature scope:
+
+1. `src/components/transactions/transaction-form.tsx:61`
+   - Transaction date type mismatch between `Date` and Firebase `Timestamp`.
+
+Previously reported typecheck failures that no longer appear in the latest pasted output:
 
 1. `.next/types/app/transactions/edit/[id]/page.ts`
    - Next.js 15 PageProps params typing mismatch.
 2. `src/components/query-provider.tsx`
    - Missing module `@tanstack/react-query-devtools`.
-3. `src/components/transactions/transaction-form.tsx`
-   - Transaction date type mismatch between Date and Firebase Timestamp.
 
 Command:
 
@@ -57,11 +60,17 @@ Command:
 npm run build
 ```
 
-Result: failed.
+Result: passed.
 
-Failure reported outside this feature scope:
+Build evidence:
 
-- `/categories/page` prerender failed because Firebase auth configuration has `auth/invalid-api-key`.
+```txt
+Next.js 15.2.3
+Environments: .env.local
+Compiled successfully
+Finalizing page optimization
+/routes generated successfully
+```
 
 ## Feature-specific assessment
 
@@ -74,16 +83,13 @@ No validation error directly references:
 
 ## Decision
 
-Review status: blocked by existing repository validation issues outside feature scope.
+Review status: blocked by existing repository typecheck issue outside feature scope.
 
 Do not move to done until either:
 
-1. baseline validation blockers are fixed in separate approved features, or
+1. the remaining baseline typecheck blocker is fixed in a separate approved feature, or
 2. the project defines a feature-scoped validation policy that allows this dashboard feature to close with documented unrelated blockers.
 
-## Recommended next features
+## Recommended next feature
 
-- 002-fix-next15-edit-transaction-page-props
 - 003-align-transaction-date-types
-- 004-query-provider-devtools-dependency-policy
-- 005-firebase-build-env-validation
