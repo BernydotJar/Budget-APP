@@ -116,6 +116,14 @@ export function TransactionList() {
        }
     });
 
+    const transactions = data?.transactions || [];
+    const filteredTransactions = useMemo(() => {
+        if (typeFilter === 'all') return transactions;
+        return transactions.filter((transaction) => transaction.type === typeFilter);
+    }, [transactions, typeFilter]);
+    const incomeCount = transactions.filter((transaction) => transaction.type === 'income').length;
+    const expenseCount = transactions.filter((transaction) => transaction.type === 'expense').length;
+
     const handleDelete = (transactionId: string) => {
        mutation.mutate(transactionId);
     };
@@ -139,14 +147,6 @@ export function TransactionList() {
             </Alert>
         )
     }
-
-    const transactions = data?.transactions || [];
-    const filteredTransactions = useMemo(() => {
-        if (typeFilter === 'all') return transactions;
-        return transactions.filter((transaction) => transaction.type === typeFilter);
-    }, [transactions, typeFilter]);
-    const incomeCount = transactions.filter((transaction) => transaction.type === 'income').length;
-    const expenseCount = transactions.filter((transaction) => transaction.type === 'expense').length;
 
     return (
         <div className="space-y-4">
