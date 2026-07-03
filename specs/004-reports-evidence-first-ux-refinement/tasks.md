@@ -3,7 +3,7 @@
 Feature: 004-reports-evidence-first-ux-refinement
 Codename: Signal Report
 Mode: SHIP
-Status: spec_ready
+Status: review
 
 ## Spec gate
 
@@ -13,23 +13,25 @@ Status: spec_ready
 - [x] Inspect report chart.
 - [x] Create feature registry entry.
 - [x] Create requirements.md.
-- [ ] Create design.md.
+- [x] Create design.md.
 - [x] Update progress/current.md.
 - [x] Append progress/history.md.
 
 ## Approval gate
 
-Required approval:
+Approved by user message: `continuemos con el siguiente gate`.
+
+Resolved as:
 
 Approved: 004-reports-evidence-first-ux-refinement for implementation in SHIP mode.
 
 ## Implementation tasks after approval
 
-- [ ] Update reports page hierarchy.
-- [ ] Improve filter card copy and framing.
-- [ ] Improve report card copy, loading state, and empty state.
-- [ ] Update skeleton to match final layout.
-- [ ] Preserve existing query behavior.
+- [x] Update reports page hierarchy.
+- [x] Improve filter card copy and framing.
+- [x] Improve report card copy, loading state, and empty state.
+- [x] Update skeleton to match final layout.
+- [x] Preserve existing query behavior.
 
 ## Review tasks
 
