@@ -3,17 +3,28 @@
 Active feature: 004-reports-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: in_progress
+Status: review
 Codename: Signal Report
 
-Implementation approved and started.
+Implementation is ready for local review.
 
-Runtime scope:
+Runtime files changed:
 
 - src/app/reports/page.tsx
 - src/components/reports/report-generator.tsx
 - src/components/reports/report-skeleton.tsx
-- src/components/reports/report-pie-chart.tsx only if needed
+
+Runtime file not changed:
+
+- src/components/reports/report-pie-chart.tsx
+
+Summary:
+
+- Refined Reports page hierarchy.
+- Improved filter framing and active scope display.
+- Improved report card copy, loading state, and empty state.
+- Aligned report skeleton with final layout.
+- Preserved report query behavior.
 
 Validation target:
 
