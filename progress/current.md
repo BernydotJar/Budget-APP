@@ -1,26 +1,27 @@
 # Current Progress
 
-Active feature: none
+Active feature: 005-categories-evidence-first-ux-refinement
 
-## Integration Status
+Mode: SHIP
+Status: spec_ready
+Codename: Category Compass
 
-Evidence-first UX recovery integration is complete.
+Runtime code has not been changed for 005.
 
-Restored features:
+## Source of truth
 
-- 001-dashboard-evidence-first-ux-refinement
-- 002-fix-next15-edit-transaction-page-props
-- 003-transactions-evidence-first-ux-refinement
-- 004-reports-evidence-first-ux-refinement
+- specs/005-categories-evidence-first-ux-refinement/requirements.md
+- specs/005-categories-evidence-first-ux-refinement/design.md
+- specs/005-categories-evidence-first-ux-refinement/tasks.md
 
-## Validation Required
+## Validation rule
 
-Before opening the integration PR:
+No feature moves to done unless this passes:
 
 ```bash
-rm -rf .next
-npm run typecheck
-npm run build
-Next Rule
+rm -rf .next && npm run typecheck && npm run build
+```
 
-Do not start a new runtime feature until this integration branch is merged into origin/main and local main is synchronized with origin/main.
+## Next gate
+
+Approved: 005-categories-evidence-first-ux-refinement for implementation in SHIP mode.
