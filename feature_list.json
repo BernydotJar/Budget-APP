@@ -22,5 +22,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the Transactions screen with clearer hierarchy, filters, empty/error states, and table readability."
+  },
+  {
+    "id": "004-reports-evidence-first-ux-refinement",
+    "title": "Reports Evidence-First UX Refinement",
+    "codename": "Signal Report",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Reports screen with clearer hierarchy, filter framing, empty states, and report evidence copy."
   }
 ]

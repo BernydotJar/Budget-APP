@@ -4,7 +4,9 @@ Active feature: none
 
 ## Integration Status
 
-Restoring validated evidence-first UX refinements into main through:
+Evidence-first UX recovery integration is complete.
+
+Restored features:
 
 - 001-dashboard-evidence-first-ux-refinement
 - 002-fix-next15-edit-transaction-page-props
@@ -13,9 +15,12 @@ Restoring validated evidence-first UX refinements into main through:
 
 ## Validation Required
 
-After integration completes:
+Before opening the integration PR:
 
 ```bash
 rm -rf .next
 npm run typecheck
-npm run build 
+npm run build
+Next Rule
+
+Do not start a new runtime feature until this integration branch is merged into origin/main and local main is synchronized with origin/main.

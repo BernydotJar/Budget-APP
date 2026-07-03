@@ -2,7 +2,7 @@
 
 ## Integration Recovery
 
-Restored validated feature work that had closed PRs but was not present in origin/main.
+Restored validated evidence-first UX work that had closed PRs but was not present in origin/main.
 
 ### 001-dashboard-evidence-first-ux-refinement
 
@@ -59,8 +59,23 @@ Validation reported:
 
 ### 004-reports-evidence-first-ux-refinement
 
-Status: pending integration  
+Status: done  
 Mode: SHIP  
 Codename: Signal Report
 
-Will be merged after 003 conflict resolution is committed.
+Summary:
+
+- Refined reports page hierarchy.
+- Improved filter framing and active scope display.
+- Improved report card copy, loading state, and empty state.
+- Aligned report skeleton with final layout.
+- Preserved existing report query behavior.
+
+Validation reported:
+
+- npm run typecheck: passed
+- npm run build: passed
+
+## Recovery Note
+
+The integration branch restores the validated feature work into main through a single recovery PR.
