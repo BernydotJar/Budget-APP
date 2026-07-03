@@ -1,88 +1,66 @@
 # Progress History
 
-## 2026-07-02
+## Integration Recovery
+
+Restored validated feature work that had closed PRs but was not present in origin/main.
 
 ### 001-dashboard-evidence-first-ux-refinement
 
-Status: spec_ready
-Mode: SHIP
+Status: done  
+Mode: SHIP  
 Codename: Silver Ledger
 
-Opened the dashboard evidence-first UX refinement feature.
+Summary:
 
-Created feature registry and source-of-truth spec files. No runtime code was changed.
+- Refined dashboard hierarchy.
+- Improved evidence-first empty states.
+- Replaced placeholder dashboard metric with data status.
+- Aligned dashboard skeleton with rendered layout.
 
-Next gate:
+Validation reported:
 
-```txt
-Approved: 001-dashboard-evidence-first-ux-refinement for implementation in SHIP mode.
-```
-
-### 001-dashboard-evidence-first-ux-refinement
-
-Status: review
-Mode: SHIP
-Codename: Silver Ledger
-
-Implemented the approved dashboard refinement within scope.
-
-Runtime files changed:
-
-- src/app/dashboard/page.tsx
-- src/components/dashboard/dashboard-metrics.tsx
-- src/components/dashboard/expense-chart.tsx
-- src/components/dashboard/dashboard-skeleton.tsx
-
-Harness files updated:
-
-- feature_list.json
-- progress/current.md
-- progress/history.md
-- specs/001-dashboard-evidence-first-ux-refinement/tasks.md
-
-Boundaries preserved: package files, env/secrets, Firebase config, AI/Genkit runtime, migrations/schema, auth behavior, and unrelated runtime files were not touched.
-
-Next gate: run local verification and produce review notes before moving to done.
+- npm run typecheck: passed
+- npm run build: passed
 
 ### 002-fix-next15-edit-transaction-page-props
 
-Status: spec_ready
-Mode: SHIP
+Status: done  
+Mode: SHIP  
 Codename: Typed Route
 
-Opened a focused feature for the Next.js 15 PageProps typecheck blocker on `/transactions/edit/[id]`.
+Summary:
 
-Created source-of-truth spec files. No runtime code was changed.
+- Fixed Next.js 15 dynamic route params typing for edit transaction page.
 
-Next gate:
+Validation reported:
 
-```txt
-Approved: 002-fix-next15-edit-transaction-page-props for implementation in SHIP mode.
-```
+- npm run typecheck: passed
+- npm run build: passed
 
-### 001-dashboard-evidence-first-ux-refinement and 002-fix-next15-edit-transaction-page-props
+### 003-transactions-evidence-first-ux-refinement
 
-Status: done
-Mode: SHIP
-Codenames: Silver Ledger, Typed Route
+Status: done  
+Mode: SHIP  
+Codename: Clear Ledger
 
-Completed the dashboard refinement and the Next.js 15 edit transaction route props fix.
+Summary:
 
-Validation reported locally:
+- Refined transactions page hierarchy.
+- Added evidence framing.
+- Added client-side type filters.
+- Improved empty and error states.
+- Improved transaction table readability.
+- Aligned loading skeleton with final layout.
 
-```bash
-npm run typecheck
-npm run build
-```
+Validation reported:
 
-Result: passed.
+- npm run typecheck: passed
+- npm run build: passed
 
-Final runtime files changed in this cycle:
+### 004-reports-evidence-first-ux-refinement
 
-- src/app/dashboard/page.tsx
-- src/components/dashboard/dashboard-metrics.tsx
-- src/components/dashboard/expense-chart.tsx
-- src/components/dashboard/dashboard-skeleton.tsx
-- src/app/transactions/edit/[id]/page.tsx
+Status: pending integration  
+Mode: SHIP  
+Codename: Signal Report
 
-Boundaries preserved: package files, env/secrets, Firebase configuration, AI/Genkit runtime, migrations/schema, and auth behavior were not changed.
+Will be merged after 003 conflict resolution is committed.

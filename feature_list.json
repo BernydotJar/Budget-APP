@@ -5,14 +5,7 @@
     "codename": "Silver Ledger",
     "mode": "SHIP",
     "status": "done",
-    "summary": "Refine the BudgetFlow dashboard so monthly financial evidence is easier to understand, empty states are explicit, and placeholders are removed before implementation.",
-    "source_of_truth": {
-      "requirements": "specs/001-dashboard-evidence-first-ux-refinement/requirements.md",
-      "design": "specs/001-dashboard-evidence-first-ux-refinement/design.md",
-      "tasks": "specs/001-dashboard-evidence-first-ux-refinement/tasks.md",
-      "current": "progress/current.md",
-      "history": "progress/history.md"
-    }
+    "summary": "Refine the Dashboard screen with clearer hierarchy, evidence-first states, and aligned loading skeletons."
   },
   {
     "id": "002-fix-next15-edit-transaction-page-props",
@@ -20,13 +13,14 @@
     "codename": "Typed Route",
     "mode": "SHIP",
     "status": "done",
-    "summary": "Resolve the Next.js 15 PageProps typing error for the edit transaction dynamic route without changing transaction behavior.",
-    "source_of_truth": {
-      "requirements": "specs/002-fix-next15-edit-transaction-page-props/requirements.md",
-      "design": "specs/002-fix-next15-edit-transaction-page-props/design.md",
-      "tasks": "specs/002-fix-next15-edit-transaction-page-props/tasks.md",
-      "current": "progress/current.md",
-      "history": "progress/history.md"
-    }
+    "summary": "Align the edit transaction dynamic route params with Next.js 15 async params typing."
+  },
+  {
+    "id": "003-transactions-evidence-first-ux-refinement",
+    "title": "Transactions Evidence-First UX Refinement",
+    "codename": "Clear Ledger",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Transactions screen with clearer hierarchy, filters, empty/error states, and table readability."
   }
 ]
