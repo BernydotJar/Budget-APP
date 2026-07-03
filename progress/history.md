@@ -79,3 +79,28 @@ Validation reported:
 ## Recovery Note
 
 The integration branch restores the validated feature work into main through a single recovery PR.
+
+## 005-categories-evidence-first-ux-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Category Compass
+
+Summary:
+
+- Refined Categories page hierarchy and explanatory copy.
+- Added evidence cards for current setup, usage scope, and deletion behavior.
+- Improved empty state and suggested starter categories presentation.
+- Updated delete confirmation copy to match current runtime behavior.
+- Aligned loading skeleton with the rendered layout.
+- Preserved existing Firestore query, delete mutation, and cache invalidation behavior.
+
+Validation passed locally:
+
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.

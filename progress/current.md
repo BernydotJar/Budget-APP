@@ -2,25 +2,28 @@
 
 Active feature: none
 
-## Integration Status
+## Last completed feature
 
-Evidence-first UX recovery integration is complete.
+005-categories-evidence-first-ux-refinement
 
-Restored features:
+Mode: SHIP  
+Status: done  
+Codename: Category Compass
 
-- 001-dashboard-evidence-first-ux-refinement
-- 002-fix-next15-edit-transaction-page-props
-- 003-transactions-evidence-first-ux-refinement
-- 004-reports-evidence-first-ux-refinement
+## Validation
 
-## Validation Required
-
-Before opening the integration PR:
+Passed locally:
 
 ```bash
-rm -rf .next
-npm run typecheck
-npm run build
-Next Rule
+rm -rf .next && npm run typecheck && npm run build
+```
 
-Do not start a new runtime feature until this integration branch is merged into origin/main and local main is synchronized with origin/main.
+Evidence:
+
+- TypeScript check passed with `tsc --noEmit`.
+- Next.js production build compiled successfully.
+- `/categories` built successfully.
+
+## Next rule
+
+Do not start a new runtime feature until the 005 pull request is merged into origin/main and local main is synchronized with origin/main.

@@ -30,5 +30,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the Reports screen with clearer hierarchy, filter framing, empty states, and report evidence copy."
+  },
+  {
+    "id": "005-categories-evidence-first-ux-refinement",
+    "title": "Categories Evidence-First UX Refinement",
+    "codename": "Category Compass",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Categories screen with clearer hierarchy, evidence framing, safer deletion copy, better empty state, and aligned loading skeletons."
   }
 ]
