@@ -1,32 +1,36 @@
 # Current Progress
 
-Active feature: 004-reports-evidence-first-ux-refinement
+Active feature: none
 
-Mode: SHIP
-Status: review
-Codename: Signal Report
+## Summary
 
-Implementation is ready for local review.
+The current SHIP cycle is validated.
 
-Runtime files changed:
+Completed feature:
+
+- 004-reports-evidence-first-ux-refinement
+
+## Validation evidence
+
+Local validation reported by Eduardo:
+
+```bash
+npm run typecheck
+npm run build
+```
+
+Result: passed.
+
+## Runtime files changed in this cycle
 
 - src/app/reports/page.tsx
 - src/components/reports/report-generator.tsx
 - src/components/reports/report-skeleton.tsx
 
-Runtime file not changed:
+## Runtime files inspected but not changed
 
 - src/components/reports/report-pie-chart.tsx
 
-Summary:
+## Next gate
 
-- Refined Reports page hierarchy.
-- Improved filter framing and active scope display.
-- Improved report card copy, loading state, and empty state.
-- Aligned report skeleton with final layout.
-- Preserved report query behavior.
-
-Validation target:
-
-- npm run typecheck
-- npm run build
+Open the next feature from a new spec before changing runtime code.
