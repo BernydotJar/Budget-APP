@@ -130,3 +130,22 @@ Build evidence:
 - Next.js production build compiled successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 007-login-auth-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Front Gate
+
+Opened the Login/Auth UX refinement feature from synchronized main.
+
+Runtime code has not been changed for 007.
+
+Evidence inspected:
+
+- src/app/login/page.tsx
+- src/components/auth/login-form.tsx
+
+Next gate:
+
+Approved: 007-login-auth-evidence-first-ux-refinement for implementation in SHIP mode.
