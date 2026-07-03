@@ -3,7 +3,7 @@
 Feature: 005-categories-evidence-first-ux-refinement
 Codename: Category Compass
 Mode: SHIP
-Status: implementation_ready_for_review
+Status: done
 
 ## Spec gate
 
@@ -32,6 +32,6 @@ Approved: 005-categories-evidence-first-ux-refinement for implementation in SHIP
 
 ## Review tasks
 
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
