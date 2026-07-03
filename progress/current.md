@@ -1,27 +1,30 @@
 # Current Progress
 
-Active feature: 006-transaction-form-evidence-first-ux-refinement
+Active feature: none
 
-Mode: SHIP
-Status: spec_ready
+## Last completed feature
+
+006-transaction-form-evidence-first-ux-refinement
+
+Mode: SHIP  
+Status: done  
 Codename: Entry Ledger
 
-Runtime code has not been changed for 006.
+## Validation
 
-## Source of truth
-
-- specs/006-transaction-form-evidence-first-ux-refinement/requirements.md
-- specs/006-transaction-form-evidence-first-ux-refinement/design.md
-- specs/006-transaction-form-evidence-first-ux-refinement/tasks.md
-
-## Validation rule
-
-No feature moves to done unless this passes:
+Passed locally:
 
 ```bash
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-## Next gate
+Evidence:
 
-Approved: 006-transaction-form-evidence-first-ux-refinement for implementation in SHIP mode.
+- TypeScript check passed with `tsc --noEmit`.
+- Next.js production build compiled successfully.
+- `/transactions/new` built successfully.
+- `/transactions/edit/[id]` built successfully.
+
+## Next rule
+
+Do not start a new runtime feature until the 006 pull request is merged into origin/main and local main is synchronized with origin/main.
