@@ -51,3 +51,26 @@ Implementation summary:
 - Preserved existing Firestore query behavior.
 
 Next gate: run local verification and capture review evidence before moving to done.
+
+### 004-reports-evidence-first-ux-refinement
+
+Status: done
+Mode: SHIP
+Codename: Signal Report
+
+Completed and validated the Reports UX refinement.
+
+Validation reported locally:
+
+- npm run typecheck: passed
+- npm run build: passed
+
+Final runtime files changed:
+
+- src/app/reports/page.tsx
+- src/components/reports/report-generator.tsx
+- src/components/reports/report-skeleton.tsx
+
+Runtime file inspected but not changed:
+
+- src/components/reports/report-pie-chart.tsx
