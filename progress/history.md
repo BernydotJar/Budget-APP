@@ -79,3 +79,23 @@ Validation reported:
 ## Recovery Note
 
 The integration branch restores the validated feature work into main through a single recovery PR.
+
+## 005-categories-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Category Compass
+
+Opened the Categories UX refinement feature from synchronized main.
+
+Runtime code has not been changed for 005.
+
+Evidence inspected:
+
+- src/app/categories/page.tsx
+- src/components/categories/category-list.tsx
+- src/components/categories/category-list-skeleton.tsx
+
+Next gate:
+
+Approved: 005-categories-evidence-first-ux-refinement for implementation in SHIP mode.
