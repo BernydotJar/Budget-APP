@@ -1,30 +1,27 @@
 # Current Progress
 
-Active feature: none
+Active feature: 007-login-auth-evidence-first-ux-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: Front Gate
 
-006-transaction-form-evidence-first-ux-refinement
+Runtime code has not been changed for 007.
 
-Mode: SHIP  
-Status: done  
-Codename: Entry Ledger
+## Source of truth
 
-## Validation
+- specs/007-login-auth-evidence-first-ux-refinement/requirements.md
+- specs/007-login-auth-evidence-first-ux-refinement/design.md
+- specs/007-login-auth-evidence-first-ux-refinement/tasks.md
 
-Passed locally:
+## Validation rule
+
+No feature moves to done unless this passes:
 
 ```bash
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-Evidence:
+## Next gate
 
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- `/transactions/new` built successfully.
-- `/transactions/edit/[id]` built successfully.
-
-## Next rule
-
-Do not start a new runtime feature until the 006 pull request is merged into origin/main and local main is synchronized with origin/main.
+Approved: 007-login-auth-evidence-first-ux-refinement for implementation in SHIP mode.
