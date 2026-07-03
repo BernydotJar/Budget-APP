@@ -1,0 +1,34 @@
+[
+  {
+    "id": "001-dashboard-evidence-first-ux-refinement",
+    "title": "Dashboard Evidence-First UX Refinement",
+    "codename": "Silver Ledger",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Dashboard screen with clearer hierarchy, evidence-first states, and aligned loading skeletons."
+  },
+  {
+    "id": "002-fix-next15-edit-transaction-page-props",
+    "title": "Fix Next 15 Edit Transaction Page Props",
+    "codename": "Typed Route",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Align the edit transaction dynamic route params with Next.js 15 async params typing."
+  },
+  {
+    "id": "003-transactions-evidence-first-ux-refinement",
+    "title": "Transactions Evidence-First UX Refinement",
+    "codename": "Clear Ledger",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Transactions screen with clearer hierarchy, filters, empty/error states, and table readability."
+  },
+  {
+    "id": "004-reports-evidence-first-ux-refinement",
+    "title": "Reports Evidence-First UX Refinement",
+    "codename": "Signal Report",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the Reports screen with clearer hierarchy, filter framing, empty states, and report evidence copy."
+  }
+]

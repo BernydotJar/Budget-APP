@@ -58,7 +58,7 @@ const fetchTransactionData = async (transactionId: string): Promise<Transaction 
     if (docSnap.exists()) {
          // Make sure to convert Firestore Timestamp back to JS Date for the form
         const data = docSnap.data() as Omit<Transaction, 'id' | 'date'> & { date: Timestamp };
-        return { id: docSnap.id, ...data, date: data.date.toDate() } as Transaction;
+        return { id: docSnap.id, ...data } as Transaction;
     } else {
         return null;
     }
