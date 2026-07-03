@@ -44,7 +44,7 @@
     "title": "Transaction Form Evidence-First UX Refinement",
     "codename": "Entry Ledger",
     "mode": "SHIP",
-    "status": "spec_ready",
+    "status": "done",
     "summary": "Refine the add/edit transaction form with clearer hierarchy, evidence framing, loading/error states, and helper copy while preserving transaction save behavior."
   }
 ]
