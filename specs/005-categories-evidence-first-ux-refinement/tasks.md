@@ -3,7 +3,7 @@
 Feature: 005-categories-evidence-first-ux-refinement
 Codename: Category Compass
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 
 ## Spec gate
 
@@ -23,12 +23,12 @@ Approved: 005-categories-evidence-first-ux-refinement for implementation in SHIP
 
 ## Implementation tasks after approval
 
-- [ ] Update categories page hierarchy.
-- [ ] Improve category evidence framing.
-- [ ] Improve empty state and suggestions presentation.
-- [ ] Improve delete confirmation copy without changing mutation behavior.
-- [ ] Update skeleton to match final layout.
-- [ ] Preserve existing query and mutation behavior.
+- [x] Update categories page hierarchy.
+- [x] Improve category evidence framing.
+- [x] Improve empty state and suggestions presentation.
+- [x] Improve delete confirmation copy without changing mutation behavior.
+- [x] Update skeleton to match final layout.
+- [x] Preserve existing query and mutation behavior.
 
 ## Review tasks
 
