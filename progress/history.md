@@ -104,3 +104,23 @@ Build evidence:
 - TypeScript check passed with tsc --noEmit.
 - Next.js production build compiled successfully.
 - /categories route built successfully.
+
+## 006-transaction-form-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Entry Ledger
+
+Opened the Transaction Form UX refinement feature from synchronized main.
+
+Runtime code has not been changed for 006.
+
+Evidence inspected:
+
+- src/app/transactions/new/page.tsx
+- src/app/transactions/edit/[id]/page.tsx
+- src/components/transactions/transaction-form.tsx
+
+Next gate:
+
+Approved: 006-transaction-form-evidence-first-ux-refinement for implementation in SHIP mode.
