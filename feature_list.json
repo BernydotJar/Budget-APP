@@ -4,7 +4,7 @@
     "title": "Reports Evidence-First UX Refinement",
     "codename": "Signal Report",
     "mode": "SHIP",
-    "status": "in_progress",
+    "status": "review",
     "summary": "Refine the Reports screen so report evidence is easier to understand, filters are clearer, empty/error states are explicit, and chart presentation is consistent with the refined Dashboard and Transactions screens.",
     "source_of_truth": {
       "requirements": "specs/004-reports-evidence-first-ux-refinement/requirements.md",
