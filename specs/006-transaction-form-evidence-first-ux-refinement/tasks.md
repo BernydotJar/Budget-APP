@@ -3,7 +3,7 @@
 Feature: 006-transaction-form-evidence-first-ux-refinement
 Codename: Entry Ledger
 Mode: SHIP
-Status: spec_ready
+Status: done
 
 ## Spec gate
 
@@ -23,16 +23,16 @@ Approved: 006-transaction-form-evidence-first-ux-refinement for implementation i
 
 ## Implementation tasks after approval
 
-- [ ] Update new/edit transaction page wrappers if needed.
-- [ ] Improve transaction form hierarchy.
-- [ ] Add evidence framing for downstream impact.
-- [ ] Improve loading state.
-- [ ] Improve error state.
-- [ ] Improve helper copy for form fields.
-- [ ] Preserve existing fetch, save, redirect, toast, and invalidation behavior.
+- [x] Update new/edit transaction page wrappers if needed.
+- [x] Improve transaction form hierarchy.
+- [x] Add evidence framing for downstream impact.
+- [x] Improve loading state.
+- [x] Improve error state.
+- [x] Improve helper copy for form fields.
+- [x] Preserve existing fetch, save, redirect, toast, and invalidation behavior.
 
 ## Review tasks
 
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
