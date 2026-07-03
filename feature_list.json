@@ -36,7 +36,7 @@
     "title": "Categories Evidence-First UX Refinement",
     "codename": "Category Compass",
     "mode": "SHIP",
-    "status": "spec_ready",
+    "status": "done",
     "summary": "Refine the Categories screen with clearer hierarchy, evidence framing, safer deletion copy, better empty state, and aligned loading skeletons."
   }
 ]
