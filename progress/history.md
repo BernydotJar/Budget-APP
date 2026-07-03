@@ -107,20 +107,26 @@ Build evidence:
 
 ## 006-transaction-form-evidence-first-ux-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Entry Ledger
 
-Opened the Transaction Form UX refinement feature from synchronized main.
+Summary:
 
-Runtime code has not been changed for 006.
+- Refined new and edit transaction page wrappers.
+- Added evidence-first transaction form header.
+- Added evidence cards for record type, downstream impact, and save behavior.
+- Split form content into core details and optional context sections.
+- Improved helper copy, loading state, error state, and submit row.
+- Preserved existing transaction fetch, save, redirect, toast, and query invalidation behavior.
 
-Evidence inspected:
+Validation passed locally:
 
-- src/app/transactions/new/page.tsx
-- src/app/transactions/edit/[id]/page.tsx
-- src/components/transactions/transaction-form.tsx
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-Next gate:
+Build evidence:
 
-Approved: 006-transaction-form-evidence-first-ux-refinement for implementation in SHIP mode.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
