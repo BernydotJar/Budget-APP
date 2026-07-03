@@ -38,5 +38,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the Categories screen with clearer hierarchy, evidence framing, safer deletion copy, better empty state, and aligned loading skeletons."
+  },
+  {
+    "id": "006-transaction-form-evidence-first-ux-refinement",
+    "title": "Transaction Form Evidence-First UX Refinement",
+    "codename": "Entry Ledger",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the add/edit transaction form with clearer hierarchy, evidence framing, loading/error states, and helper copy while preserving transaction save behavior."
   }
 ]

@@ -10,7 +10,9 @@ export default async function EditTransactionPage({ params }: EditTransactionPag
 
   return (
     <AuthGuard>
-      <TransactionForm transactionId={id} />
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
+        <TransactionForm transactionId={id} />
+      </div>
     </AuthGuard>
   );
 }

@@ -104,3 +104,29 @@ Build evidence:
 - TypeScript check passed with tsc --noEmit.
 - Next.js production build compiled successfully.
 - /categories route built successfully.
+
+## 006-transaction-form-evidence-first-ux-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Entry Ledger
+
+Summary:
+
+- Refined new and edit transaction page wrappers.
+- Added evidence-first transaction form header.
+- Added evidence cards for record type, downstream impact, and save behavior.
+- Split form content into core details and optional context sections.
+- Improved helper copy, loading state, error state, and submit row.
+- Preserved existing transaction fetch, save, redirect, toast, and query invalidation behavior.
+
+Validation passed locally:
+
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.

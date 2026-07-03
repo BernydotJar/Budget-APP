@@ -4,11 +4,11 @@ Active feature: none
 
 ## Last completed feature
 
-005-categories-evidence-first-ux-refinement
+006-transaction-form-evidence-first-ux-refinement
 
 Mode: SHIP  
 Status: done  
-Codename: Category Compass
+Codename: Entry Ledger
 
 ## Validation
 
@@ -22,8 +22,9 @@ Evidence:
 
 - TypeScript check passed with `tsc --noEmit`.
 - Next.js production build compiled successfully.
-- `/categories` built successfully.
+- `/transactions/new` built successfully.
+- `/transactions/edit/[id]` built successfully.
 
 ## Next rule
 
-Do not start a new runtime feature until the 005 pull request is merged into origin/main and local main is synchronized with origin/main.
+Do not start a new runtime feature until the 006 pull request is merged into origin/main and local main is synchronized with origin/main.
