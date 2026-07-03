@@ -82,20 +82,25 @@ The integration branch restores the validated feature work into main through a s
 
 ## 005-categories-evidence-first-ux-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Category Compass
 
-Opened the Categories UX refinement feature from synchronized main.
+Summary:
 
-Runtime code has not been changed for 005.
+- Refined Categories page hierarchy and explanatory copy.
+- Added evidence cards for current setup, usage scope, and deletion behavior.
+- Improved empty state and suggested starter categories presentation.
+- Updated delete confirmation copy to match current runtime behavior.
+- Aligned loading skeleton with the rendered layout.
+- Preserved existing Firestore query, delete mutation, and cache invalidation behavior.
 
-Evidence inspected:
+Validation passed locally:
 
-- src/app/categories/page.tsx
-- src/components/categories/category-list.tsx
-- src/components/categories/category-list-skeleton.tsx
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-Next gate:
+Build evidence:
 
-Approved: 005-categories-evidence-first-ux-refinement for implementation in SHIP mode.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
