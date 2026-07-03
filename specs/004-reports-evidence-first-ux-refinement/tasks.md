@@ -3,7 +3,7 @@
 Feature: 004-reports-evidence-first-ux-refinement
 Codename: Signal Report
 Mode: SHIP
-Status: review
+Status: done
 
 ## Spec gate
 
@@ -35,7 +35,14 @@ Approved: 004-reports-evidence-first-ux-refinement for implementation in SHIP mo
 
 ## Review tasks
 
-- [ ] Run npm run typecheck.
-- [ ] Run npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run npm run typecheck.
+- [x] Run npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
+
+## Validation result
+
+Local validation reported by Eduardo:
+
+- npm run typecheck: passed
+- npm run build: passed
