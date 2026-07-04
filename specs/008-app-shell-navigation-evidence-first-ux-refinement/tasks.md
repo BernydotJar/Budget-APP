@@ -3,7 +3,7 @@
 Feature: 008-app-shell-navigation-evidence-first-ux-refinement
 Codename: North Star Shell
 Mode: SHIP
-Status: implementation_ready_for_review
+Status: done
 
 ## Spec gate
 
@@ -32,6 +32,6 @@ Approved: 008-app-shell-navigation-evidence-first-ux-refinement for implementati
 
 ## Review tasks
 
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
