@@ -193,3 +193,24 @@ Build evidence:
 - /reports route built successfully.
 - /categories route built successfully.
 - /login route built successfully.
+
+## 009-page-frame-consistency-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Frame Lock
+
+Opened the Page Frame Consistency UX refinement feature from synchronized main.
+
+Runtime code has not been changed for 009.
+
+Evidence inspected:
+
+- src/app/dashboard/page.tsx
+- src/app/transactions/page.tsx
+- src/app/reports/page.tsx
+- src/app/categories/page.tsx
+
+Next gate:
+
+Explicit implementation approval for 009.
