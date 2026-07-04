@@ -3,7 +3,7 @@
 Feature: 007-login-auth-evidence-first-ux-refinement
 Codename: Front Gate
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 
 ## Spec gate
 
@@ -22,15 +22,15 @@ Approved: 007-login-auth-evidence-first-ux-refinement for implementation in SHIP
 
 ## Implementation tasks after approval
 
-- [ ] Update login page wrapper if needed.
-- [ ] Improve login/sign-up page hierarchy.
-- [ ] Add product and workflow framing.
-- [ ] Improve sign-up sample-data disclosure.
-- [ ] Improve auth error state.
-- [ ] Preserve email/password login behavior.
-- [ ] Preserve email/password sign-up behavior.
-- [ ] Preserve Google sign-in behavior.
-- [ ] Preserve dashboard redirect behavior.
+- [x] Update login page wrapper if needed.
+- [x] Improve login/sign-up page hierarchy.
+- [x] Add product and workflow framing.
+- [x] Improve sign-up sample-data disclosure.
+- [x] Improve auth error state.
+- [x] Preserve email/password login behavior.
+- [x] Preserve email/password sign-up behavior.
+- [x] Preserve Google sign-in behavior.
+- [x] Preserve dashboard redirect behavior.
 
 ## Review tasks
 
