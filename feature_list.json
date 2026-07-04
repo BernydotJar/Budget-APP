@@ -60,7 +60,7 @@
     "title": "App Shell Navigation Evidence-First UX Refinement",
     "codename": "North Star Shell",
     "mode": "SHIP",
-    "status": "spec_ready",
+    "status": "done",
     "summary": "Refine the authenticated app shell and navigation with clearer hierarchy, active states, mobile behavior, and evidence-first navigation copy."
   }
 ]
