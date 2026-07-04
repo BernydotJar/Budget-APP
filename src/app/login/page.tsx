@@ -1,5 +1,9 @@
 import { LoginForm } from '@/components/auth/login-form';
 
 export default function LoginPage() {
-  return <LoginForm />;
+  return (
+    <main className="min-h-screen bg-secondary">
+      <LoginForm />
+    </main>
+  );
 }

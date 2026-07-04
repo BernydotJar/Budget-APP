@@ -46,5 +46,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the add/edit transaction form with clearer hierarchy, evidence framing, loading/error states, and helper copy while preserving transaction save behavior."
+  },
+  {
+    "id": "007-login-auth-evidence-first-ux-refinement",
+    "title": "Login Auth Evidence-First UX Refinement",
+    "codename": "Front Gate",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the login and sign-up experience with clearer hierarchy, evidence framing, safer sample-data copy, and aligned authentication error states."
   }
 ]

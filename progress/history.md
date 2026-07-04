@@ -130,3 +130,29 @@ Build evidence:
 - Next.js production build compiled successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 007-login-auth-evidence-first-ux-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Front Gate
+
+Summary:
+
+- Refined the login page wrapper.
+- Added a responsive two-column login/auth surface.
+- Added product and workflow framing before authentication.
+- Added evidence cards for secure access, dashboard redirect, and sample data.
+- Improved sign-up sample-data disclosure.
+- Replaced plain auth error text with a destructive alert.
+- Preserved email/password login, email/password sign-up, Google sign-in, sample data creation, toast behavior, and dashboard redirect behavior.
+
+Validation passed locally:
+
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /login route built successfully.
