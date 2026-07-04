@@ -62,5 +62,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the authenticated app shell and navigation with clearer hierarchy, active states, mobile behavior, and evidence-first navigation copy."
+  },
+  {
+    "id": "009-home-redirect-entrypoint-evidence-first-refinement",
+    "title": "Home Redirect Entrypoint Evidence-First Refinement",
+    "codename": "Front Door Redirect",
+    "mode": "SHIP",
+    "status": "spec_ready",
+    "summary": "Document and refine the root home entrypoint redirect behavior so the public slash route remains intentional, validated, and aligned with the authenticated dashboard entry flow."
   }
 ]
