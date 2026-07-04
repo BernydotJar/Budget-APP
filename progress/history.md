@@ -133,19 +133,26 @@ Build evidence:
 
 ## 007-login-auth-evidence-first-ux-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Front Gate
 
-Opened the Login/Auth UX refinement feature from synchronized main.
+Summary:
 
-Runtime code has not been changed for 007.
+- Refined the login page wrapper.
+- Added a responsive two-column login/auth surface.
+- Added product and workflow framing before authentication.
+- Added evidence cards for secure access, dashboard redirect, and sample data.
+- Improved sign-up sample-data disclosure.
+- Replaced plain auth error text with a destructive alert.
+- Preserved email/password login, email/password sign-up, Google sign-in, sample data creation, toast behavior, and dashboard redirect behavior.
 
-Evidence inspected:
+Validation passed locally:
 
-- src/app/login/page.tsx
-- src/components/auth/login-form.tsx
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-Next gate:
+Build evidence:
 
-Approved: 007-login-auth-evidence-first-ux-refinement for implementation in SHIP mode.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /login route built successfully.
