@@ -1,29 +1,38 @@
 # Current Progress
 
-Active feature: none
+Active feature: 008-app-shell-navigation-evidence-first-ux-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: North Star Shell
 
-007-login-auth-evidence-first-ux-refinement
+Runtime code has not been changed for 008.
 
-Mode: SHIP  
-Status: done  
-Codename: Front Gate
+## Source of truth
 
-## Validation
+- specs/008-app-shell-navigation-evidence-first-ux-refinement/requirements.md
+- specs/008-app-shell-navigation-evidence-first-ux-refinement/design.md
+- specs/008-app-shell-navigation-evidence-first-ux-refinement/tasks.md
 
-Passed locally:
+## Runtime evidence inspected
+
+- src/app/layout.tsx
+- src/components/main-nav.tsx
+
+## Harness source
+
+This feature follows the project SDLC harness pattern based on:
+
+- https://github.com/BernydotJar/harness-sdlc
+
+## Validation rule
+
+No feature moves to done unless this passes:
 
 ```bash
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-Evidence:
+## Next gate
 
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- `/login` route built successfully.
-
-## Next rule
-
-Do not start a new runtime feature until the 007 pull request is merged into origin/main and local main is synchronized with origin/main.
+Approved: 008-app-shell-navigation-evidence-first-ux-refinement for implementation in SHIP mode.
