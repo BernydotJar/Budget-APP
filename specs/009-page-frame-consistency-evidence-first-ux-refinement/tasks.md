@@ -12,6 +12,7 @@ Status: spec_ready
 - [x] Inspect transactions page frame.
 - [x] Inspect reports page frame.
 - [x] Inspect categories page frame.
+- [x] Review supplied savings-app motion-site reference.
 - [x] Create feature registry entry.
 - [x] Create requirements.md.
 - [x] Create design.md.
@@ -28,6 +29,11 @@ Approved: 009-page-frame-consistency-evidence-first-ux-refinement for implementa
 - [ ] Normalize transactions page frame.
 - [ ] Normalize reports page frame.
 - [ ] Normalize categories page frame.
+- [ ] Add BudgetFlow-specific focus visual composition.
+- [ ] Add scroll-story or page-story markers without backend changes.
+- [ ] Add consistent motion-style background treatment.
+- [ ] Strengthen CTA/footer-style orientation where applicable.
+- [ ] Add lightweight static coverage for key visual/story markers.
 - [ ] Preserve existing child components and suspense boundaries.
 - [ ] Preserve existing CTAs and route destinations.
 - [ ] Preserve existing data and mutation behavior.
