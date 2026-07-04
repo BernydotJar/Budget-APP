@@ -156,3 +156,26 @@ Build evidence:
 - TypeScript check passed with tsc --noEmit.
 - Next.js production build compiled successfully.
 - /login route built successfully.
+
+## 008-app-shell-navigation-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: North Star Shell
+
+Opened the App Shell Navigation UX refinement feature from synchronized main.
+
+Runtime code has not been changed for 008.
+
+Evidence inspected:
+
+- src/app/layout.tsx
+- src/components/main-nav.tsx
+
+Harness source:
+
+- https://github.com/BernydotJar/harness-sdlc
+
+Next gate:
+
+Approved: 008-app-shell-navigation-evidence-first-ux-refinement for implementation in SHIP mode.
