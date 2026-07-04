@@ -156,3 +156,40 @@ Build evidence:
 - TypeScript check passed with tsc --noEmit.
 - Next.js production build compiled successfully.
 - /login route built successfully.
+
+## 008-app-shell-navigation-evidence-first-ux-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: North Star Shell
+
+Summary:
+
+- Refined sidebar product identity with BudgetFlow workspace framing.
+- Added clearer global shell header context.
+- Grouped navigation into Overview, Activity, Insights, and Setup.
+- Added route intent descriptions for each primary navigation item.
+- Aligned the sidebar loading skeleton with the grouped navigation structure.
+- Preserved dashboard, transactions, new transaction, reports, and categories destinations.
+- Preserved active route behavior for nested transaction routes.
+- Preserved Firebase logout, success toast, failure toast, and redirect to `/login`.
+
+Harness source:
+
+- https://github.com/BernydotJar/harness-sdlc
+
+Validation passed locally:
+
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /dashboard route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
+- /reports route built successfully.
+- /categories route built successfully.
+- /login route built successfully.

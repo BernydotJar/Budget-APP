@@ -54,5 +54,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the login and sign-up experience with clearer hierarchy, evidence framing, safer sample-data copy, and aligned authentication error states."
+  },
+  {
+    "id": "008-app-shell-navigation-evidence-first-ux-refinement",
+    "title": "App Shell Navigation Evidence-First UX Refinement",
+    "codename": "North Star Shell",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine the authenticated app shell and navigation with clearer hierarchy, active states, mobile behavior, and evidence-first navigation copy."
   }
 ]
