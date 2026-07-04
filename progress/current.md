@@ -1,30 +1,30 @@
 # Current Progress
 
-Active feature: none
+Active feature: 009-page-frame-consistency-evidence-first-ux-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: Frame Lock
 
-008-app-shell-navigation-evidence-first-ux-refinement
+Runtime code has not been changed for 009.
 
-Mode: SHIP  
-Status: done  
-Codename: North Star Shell
+## Source of truth
 
-## Validation
+- specs/009-page-frame-consistency-evidence-first-ux-refinement/requirements.md
+- specs/009-page-frame-consistency-evidence-first-ux-refinement/design.md
+- specs/009-page-frame-consistency-evidence-first-ux-refinement/tasks.md
 
-Passed locally:
+## Runtime evidence inspected
 
-```bash
-rm -rf .next && npm run typecheck && npm run build
-```
+- src/app/dashboard/page.tsx
+- src/app/transactions/page.tsx
+- src/app/reports/page.tsx
+- src/app/categories/page.tsx
 
-Evidence:
+## Validation rule
 
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- App shell routes built successfully.
-- `/dashboard`, `/transactions`, `/transactions/new`, `/transactions/edit/[id]`, `/reports`, `/categories`, and `/login` routes built successfully.
+Required review command: rm -rf .next && npm run typecheck && npm run build
 
-## Next rule
+## Next gate
 
-Do not start a new runtime feature until the 008 pull request is merged into origin/main and local main is synchronized with origin/main.
+Await explicit implementation approval for 009 before runtime changes.
