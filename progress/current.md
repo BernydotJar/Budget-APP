@@ -1,27 +1,29 @@
 # Current Progress
 
-Active feature: 007-login-auth-evidence-first-ux-refinement
+Active feature: none
 
-Mode: SHIP
-Status: spec_ready
+## Last completed feature
+
+007-login-auth-evidence-first-ux-refinement
+
+Mode: SHIP  
+Status: done  
 Codename: Front Gate
 
-Runtime code has not been changed for 007.
+## Validation
 
-## Source of truth
-
-- specs/007-login-auth-evidence-first-ux-refinement/requirements.md
-- specs/007-login-auth-evidence-first-ux-refinement/design.md
-- specs/007-login-auth-evidence-first-ux-refinement/tasks.md
-
-## Validation rule
-
-No feature moves to done unless this passes:
+Passed locally:
 
 ```bash
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-## Next gate
+Evidence:
 
-Approved: 007-login-auth-evidence-first-ux-refinement for implementation in SHIP mode.
+- TypeScript check passed with `tsc --noEmit`.
+- Next.js production build compiled successfully.
+- `/login` route built successfully.
+
+## Next rule
+
+Do not start a new runtime feature until the 007 pull request is merged into origin/main and local main is synchronized with origin/main.
