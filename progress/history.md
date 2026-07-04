@@ -204,12 +204,23 @@ Opened the Page Frame Consistency UX refinement feature from synchronized main.
 
 Runtime code has not been changed for 009.
 
+Updated the 009 spec direction before implementation to target a premium cinematic savings-app visual system rather than a clean admin/blog-style layout.
+
+Captured current design risk:
+
+- UI reads too much like admin dashboard plus blog-style hero plus documentation cards.
+- Target should be premium savings product, animated financial experience, and visual-first app landing.
+- `/login` should not feel like an internal admin dashboard shell.
+- BudgetFlow needs a dominant financial cockpit/app-preview visual, depth, glass surfaces, concise copy, floating cards/chips, and stronger premium auth composition.
+
 Evidence inspected:
 
 - src/app/dashboard/page.tsx
 - src/app/transactions/page.tsx
 - src/app/reports/page.tsx
 - src/app/categories/page.tsx
+- src/app/login/page.tsx
+- src/components/auth/login-form.tsx
 
 Next gate:
 
