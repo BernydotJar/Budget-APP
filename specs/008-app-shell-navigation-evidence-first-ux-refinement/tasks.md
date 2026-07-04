@@ -3,7 +3,7 @@
 Feature: 008-app-shell-navigation-evidence-first-ux-refinement
 Codename: North Star Shell
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 
 ## Spec gate
 
@@ -22,13 +22,13 @@ Approved: 008-app-shell-navigation-evidence-first-ux-refinement for implementati
 
 ## Implementation tasks after approval
 
-- [ ] Improve sidebar product identity.
-- [ ] Improve global shell header context.
-- [ ] Improve navigation grouping and hierarchy.
-- [ ] Preserve existing route destinations.
-- [ ] Preserve active route behavior.
-- [ ] Preserve logout behavior.
-- [ ] Align shell skeleton with final navigation structure.
+- [x] Improve sidebar product identity.
+- [x] Improve global shell header context.
+- [x] Improve navigation grouping and hierarchy.
+- [x] Preserve existing route destinations.
+- [x] Preserve active route behavior.
+- [x] Preserve logout behavior.
+- [x] Align shell skeleton with final navigation structure.
 
 ## Review tasks
 
