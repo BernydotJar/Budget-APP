@@ -52,7 +52,7 @@
     "title": "Login Auth Evidence-First UX Refinement",
     "codename": "Front Gate",
     "mode": "SHIP",
-    "status": "spec_ready",
+    "status": "done",
     "summary": "Refine the login and sign-up experience with clearer hierarchy, evidence framing, safer sample-data copy, and aligned authentication error states."
   }
 ]
