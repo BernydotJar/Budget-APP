@@ -3,7 +3,7 @@
 Feature: 009-page-frame-consistency-evidence-first-ux-refinement
 Codename: Frame Lock
 Mode: SHIP
-Status: implementation_ready_for_review
+Status: done
 
 ## Spec gate
 
@@ -46,7 +46,7 @@ Approved: 009-page-frame-consistency-evidence-first-ux-refinement for implementa
 
 ## Review tasks
 
-- [ ] Run node scripts/verify-009-visual-markers.js.
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run node scripts/verify-009-visual-markers.js.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
