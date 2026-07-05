@@ -3,7 +3,7 @@
 Feature: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 Codename: Pocket Cinema
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 
 ## Spec gate
 
@@ -18,25 +18,23 @@ Status: spec_ready
 
 ## Approval gate
 
-Required approval:
-
-Approved: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement for implementation in SHIP mode.
+- [x] Implementation approved in SHIP mode.
 
 ## Implementation tasks after approval
 
-- [ ] Refine top dock responsive density.
-- [ ] Refine shell chip overflow behavior on narrow screens.
-- [ ] Preserve active route behavior.
-- [ ] Preserve logout behavior.
-- [ ] Refine motion timing and visual polish.
-- [ ] Preserve reduced-motion support.
-- [ ] Tighten responsive typography on cinematic frames.
-- [ ] Preserve auth, Firestore, route, mutation, toast, redirect, and suspense behavior.
-- [ ] Add static coverage for mobile/motion markers.
+- [x] Refine top dock responsive density.
+- [x] Refine shell chip overflow behavior on narrow screens.
+- [x] Preserve active route behavior.
+- [x] Preserve logout behavior.
+- [x] Refine motion timing and visual polish.
+- [x] Preserve reduced-motion support.
+- [x] Add reusable responsive typography utilities.
+- [x] Preserve runtime behavior outside visual shell polish.
+- [x] Add static coverage for mobile/motion markers.
 
 ## Review tasks
 
-- [ ] Run node scripts/verify-010-mobile-motion-markers.js if added.
+- [ ] Run node scripts/verify-010-mobile-motion-markers.js.
 - [ ] Run rm -rf .next && npm run typecheck && npm run build.
 - [ ] Capture review evidence.
 - [ ] Move feature to done after validation passes.
