@@ -3,14 +3,14 @@
 Active feature: 009-page-frame-consistency-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 Codename: Frame Lock
 
-Runtime code has not been changed for 009.
+Runtime code has been updated for 009 and is ready for local review.
 
-Spec reorientation:
+## Spec reorientation
 
-009 should target a premium cinematic BudgetFlow savings-app visual system, not only page-frame consistency. The current design risk is that the UI reads as an admin dashboard or blog-style documentation layout. The target is a visual-first financial cockpit with depth, glass surfaces, concise copy, and auth pages that do not feel like an internal admin shell.
+009 targets a premium cinematic BudgetFlow savings-app visual system, not only page-frame consistency. The design risk was an admin dashboard or blog-style documentation layout. The implementation now moves toward a visual-first financial cockpit with depth, glass surfaces, concise copy, and an auth page that does not feel like an internal admin shell.
 
 ## Source of truth
 
@@ -18,7 +18,7 @@ Spec reorientation:
 - specs/009-page-frame-consistency-evidence-first-ux-refinement/design.md
 - specs/009-page-frame-consistency-evidence-first-ux-refinement/tasks.md
 
-## Runtime evidence inspected
+## Runtime updated
 
 - src/app/dashboard/page.tsx
 - src/app/transactions/page.tsx
@@ -27,10 +27,13 @@ Spec reorientation:
 - src/app/login/page.tsx
 - src/components/auth/login-form.tsx
 
-## Validation rule
+## Static coverage added
 
-Required review command: rm -rf .next && npm run typecheck && npm run build
+- scripts/verify-009-visual-markers.js
 
-## Next gate
+## Review commands
 
-Await explicit implementation approval for 009 before runtime changes.
+```bash
+node scripts/verify-009-visual-markers.js
+rm -rf .next && npm run typecheck && npm run build
+```
