@@ -228,3 +228,30 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Pocket Cinema
+
+Opened the Mobile Responsive Motion Polish feature from synchronized main after PR #9 merge.
+
+Runtime code has not been changed for 010.
+
+Evidence inspected:
+
+- src/app/layout.tsx
+- src/components/main-nav.tsx
+
+Design focus:
+
+- premium top dock density.
+- shell chip navigation overflow.
+- responsive cinematic headings.
+- lightweight motion polish.
+- reduced-motion protection.
+
+Next gate:
+
+Approved: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement for implementation in SHIP mode.
