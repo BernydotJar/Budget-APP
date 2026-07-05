@@ -3,10 +3,10 @@
 Active feature: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 Codename: Pocket Cinema
 
-Runtime code has not been changed for 010.
+Runtime code has been updated for 010 and is ready for local review.
 
 ## Source of truth
 
@@ -14,25 +14,27 @@ Runtime code has not been changed for 010.
 - specs/010-mobile-responsive-motion-polish-evidence-first-ux-refinement/design.md
 - specs/010-mobile-responsive-motion-polish-evidence-first-ux-refinement/tasks.md
 
-## Runtime evidence inspected
+## Runtime updated
 
 - src/app/layout.tsx
 - src/components/main-nav.tsx
+- src/app/globals.css
 
-## Design intent
+## Static coverage added
 
-010 hardens the premium BudgetFlow visual system from 009 for mobile, tablet, and desktop. The focus is top dock density, chip navigation overflow, responsive cinematic headings, lightweight motion polish, and reduced-motion protection.
+- scripts/verify-010-mobile-motion-markers.js
 
-## Validation rule
+## Implementation notes
 
-No feature moves to done unless this passes:
+- Top dock spacing is denser on mobile and expands on larger screens.
+- Shell chips now use a mobile-safe horizontal scroll rail with snap behavior.
+- Motion timing now uses staggered chip entry and slower scan polish.
+- Reduced-motion protection remains in place.
+- No route, data, auth, mutation, toast, redirect, or package changes were made.
+
+## Review commands
 
 ```bash
+node scripts/verify-010-mobile-motion-markers.js
 rm -rf .next && npm run typecheck && npm run build
 ```
-
-If static marker coverage is added, it must also pass before done.
-
-## Next gate
-
-Approved: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement for implementation in SHIP mode.
