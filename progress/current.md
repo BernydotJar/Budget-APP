@@ -1,31 +1,38 @@
 # Current Progress
 
-Active feature: none
+Active feature: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: Pocket Cinema
 
-009-page-frame-consistency-evidence-first-ux-refinement
+Runtime code has not been changed for 010.
 
-Mode: SHIP  
-Status: done  
-Codename: Frame Lock
+## Source of truth
 
-## Validation
+- specs/010-mobile-responsive-motion-polish-evidence-first-ux-refinement/requirements.md
+- specs/010-mobile-responsive-motion-polish-evidence-first-ux-refinement/design.md
+- specs/010-mobile-responsive-motion-polish-evidence-first-ux-refinement/tasks.md
 
-Passed locally:
+## Runtime evidence inspected
+
+- src/app/layout.tsx
+- src/components/main-nav.tsx
+
+## Design intent
+
+010 hardens the premium BudgetFlow visual system from 009 for mobile, tablet, and desktop. The focus is top dock density, chip navigation overflow, responsive cinematic headings, lightweight motion polish, and reduced-motion protection.
+
+## Validation rule
+
+No feature moves to done unless this passes:
 
 ```bash
-node scripts/verify-009-visual-markers.js
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-Evidence:
+If static marker coverage is added, it must also pass before done.
 
-- 009 visual marker verification passed.
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- `/categories`, `/dashboard`, `/login`, `/reports`, `/transactions`, `/transactions/new`, and `/transactions/edit/[id]` routes built successfully.
+## Next gate
 
-## Next rule
-
-Do not start a new runtime feature until the 009 pull request is merged into origin/main and local main is synchronized with origin/main.
+Approved: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement for implementation in SHIP mode.
