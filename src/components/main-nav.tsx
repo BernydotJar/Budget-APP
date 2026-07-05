@@ -11,15 +11,6 @@ import {
   PlusCircle,
   PieChart,
 } from 'lucide-react';
-import {
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarSeparator,
-} from '@/components/ui/sidebar';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
@@ -31,61 +22,36 @@ type NavItem = {
   icon: ComponentType<{ className?: string }>;
 };
 
-type NavGroup = {
-  label: string;
-  items: NavItem[];
-};
-
-const navGroups: NavGroup[] = [
+const navItems: NavItem[] = [
   {
-    label: 'Overview',
-    items: [
-      {
-        href: '/dashboard',
-        label: 'Dashboard',
-        description: 'Budget evidence and totals',
-        icon: LayoutDashboard,
-      },
-    ],
+    href: '/dashboard',
+    label: 'Dashboard',
+    description: 'Budget evidence and totals',
+    icon: LayoutDashboard,
   },
   {
-    label: 'Activity',
-    items: [
-      {
-        href: '/transactions',
-        label: 'Transactions',
-        description: 'Review income and expenses',
-        icon: List,
-      },
-      {
-        href: '/transactions/new',
-        label: 'New Transaction',
-        description: 'Record a budget event',
-        icon: PlusCircle,
-      },
-    ],
+    href: '/transactions',
+    label: 'Transactions',
+    description: 'Review income and expenses',
+    icon: List,
   },
   {
-    label: 'Insights',
-    items: [
-      {
-        href: '/reports',
-        label: 'Reports',
-        description: 'Analyze budget patterns',
-        icon: PieChart,
-      },
-    ],
+    href: '/transactions/new',
+    label: 'New',
+    description: 'Record a budget event',
+    icon: PlusCircle,
   },
   {
-    label: 'Setup',
-    items: [
-      {
-        href: '/categories',
-        label: 'Categories',
-        description: 'Maintain classification rules',
-        icon: Settings,
-      },
-    ],
+    href: '/reports',
+    label: 'Reports',
+    description: 'Analyze budget patterns',
+    icon: PieChart,
+  },
+  {
+    href: '/categories',
+    label: 'Categories',
+    description: 'Maintain classification rules',
+    icon: Settings,
   },
 ];
 
@@ -114,53 +80,36 @@ export function MainNav() {
   };
 
   return (
-    <div className="space-y-2">
-      {navGroups.map((group) => (
-        <SidebarGroup key={group.label} className="p-0">
-          <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {group.items.map((item) => {
-                const Icon = item.icon;
-                const isActive = isRouteActive(pathname, item.href);
+    <nav className="premium-shell-chips flex items-center gap-2 overflow-x-auto rounded-full border border-white/70 bg-white/65 p-1 shadow-sm backdrop-blur-xl">
+      {navItems.map((item) => {
+        const Icon = item.icon;
+        const isActive = isRouteActive(pathname, item.href);
 
-                return (
-                  <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={isActive}
-                      tooltip={item.label}
-                      size="lg"
-                      className="h-auto items-start py-2"
-                    >
-                      <Link href={item.href}>
-                        <Icon className="mt-0.5 h-4 w-4" />
-                        <span className="flex min-w-0 flex-col gap-0.5">
-                          <span className="truncate text-sm font-medium">{item.label}</span>
-                          <span className="truncate text-xs font-normal text-sidebar-foreground/70 group-data-[collapsible=icon]:hidden">
-                            {item.description}
-                          </span>
-                        </span>
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                );
-              })}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      ))}
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            title={item.description}
+            className={`motion-nav-chip group inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+              isActive
+                ? 'bg-slate-950 text-white shadow-lg shadow-slate-900/15'
+                : 'text-slate-600 hover:bg-white hover:text-slate-950 hover:shadow-sm'
+            }`}
+          >
+            <Icon className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+            <span>{item.label}</span>
+          </Link>
+        );
+      })}
 
-      <SidebarSeparator />
-
-      <SidebarMenu>
-        <SidebarMenuItem>
-          <SidebarMenuButton onClick={handleLogout} tooltip="Logout">
-            <LogOut className="h-4 w-4" />
-            <span>Logout</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      </SidebarMenu>
-    </div>
+      <button
+        type="button"
+        onClick={handleLogout}
+        className="motion-nav-chip ml-1 inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-slate-500 transition-all duration-300 hover:bg-white hover:text-slate-950 hover:shadow-sm"
+      >
+        <LogOut className="h-4 w-4" />
+        <span>Logout</span>
+      </button>
+    </nav>
   );
 }
