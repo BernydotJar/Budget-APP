@@ -70,5 +70,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine BudgetFlow into a premium cinematic savings-app experience with top-dock navigation, motion-style visual markers, financial cockpit frames, glass panels, and verified static coverage while preserving app behavior."
+  },
+  {
+    "id": "010-mobile-responsive-motion-polish-evidence-first-ux-refinement",
+    "title": "Mobile Responsive Motion Polish Evidence-First UX Refinement",
+    "codename": "Pocket Cinema",
+    "mode": "SHIP",
+    "status": "spec_ready",
+    "summary": "Harden the premium top dock, chip navigation, responsive layout, and lightweight motion system so the cinematic BudgetFlow experience holds up on mobile and desktop."
   }
 ]
