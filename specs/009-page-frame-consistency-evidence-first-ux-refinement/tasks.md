@@ -3,7 +3,7 @@
 Feature: 009-page-frame-consistency-evidence-first-ux-refinement
 Codename: Frame Lock
 Mode: SHIP
-Status: spec_ready
+Status: implementation_ready_for_review
 
 ## Spec gate
 
@@ -27,25 +27,26 @@ Approved: 009-page-frame-consistency-evidence-first-ux-refinement for implementa
 
 ## Implementation tasks after approval
 
-- [ ] Normalize dashboard page frame.
-- [ ] Normalize transactions page frame.
-- [ ] Normalize reports page frame.
-- [ ] Normalize categories page frame.
-- [ ] Refine login/auth page so it does not feel like an internal admin dashboard shell.
-- [ ] Add BudgetFlow-specific financial cockpit or app-preview focus visual composition.
-- [ ] Add floating cards or chips around the focus visual.
-- [ ] Add premium glass/auth panel composition while preserving auth behavior.
-- [ ] Add scroll-story or page-story markers without backend changes.
-- [ ] Add consistent premium motion-style background treatment.
-- [ ] Strengthen CTA/footer-style orientation where applicable.
-- [ ] Add lightweight static coverage for key visual/story markers.
-- [ ] Preserve existing child components and suspense boundaries.
-- [ ] Preserve existing CTAs and route destinations.
-- [ ] Preserve existing data and mutation behavior.
-- [ ] Preserve email/password auth, Google sign-in, sample data creation, toasts, and redirects.
+- [x] Normalize dashboard page frame.
+- [x] Normalize transactions page frame.
+- [x] Normalize reports page frame.
+- [x] Normalize categories page frame.
+- [x] Refine login/auth page so it does not feel like an internal admin dashboard shell.
+- [x] Add BudgetFlow-specific financial cockpit or app-preview focus visual composition.
+- [x] Add floating cards or chips around the focus visual.
+- [x] Add premium glass/auth panel composition while preserving auth behavior.
+- [x] Add scroll-story or page-story markers without backend changes.
+- [x] Add consistent premium motion-style background treatment.
+- [x] Strengthen CTA/footer-style orientation where applicable.
+- [x] Add lightweight static coverage for key visual/story markers.
+- [x] Preserve existing child components and suspense boundaries.
+- [x] Preserve existing CTAs and route destinations.
+- [x] Preserve existing data and mutation behavior.
+- [x] Preserve email/password auth, Google sign-in, sample data creation, toasts, and redirects.
 
 ## Review tasks
 
+- [ ] Run node scripts/verify-009-visual-markers.js.
 - [ ] Run rm -rf .next && npm run typecheck && npm run build.
 - [ ] Capture review evidence.
 - [ ] Move feature to done after validation passes.
