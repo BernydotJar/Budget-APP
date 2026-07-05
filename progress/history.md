@@ -196,32 +196,35 @@ Build evidence:
 
 ## 009-page-frame-consistency-evidence-first-ux-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Frame Lock
 
-Opened the Page Frame Consistency UX refinement feature from synchronized main.
+Summary:
 
-Runtime code has not been changed for 009.
+- Reoriented BudgetFlow from admin/blog-style UX into a premium cinematic savings-app direction.
+- Replaced the authenticated admin-style sidebar with a premium top dock and shell chips.
+- Added premium motion-style visual markers and lightweight CSS motion.
+- Added financial cockpit/app-preview compositions across login, dashboard, transactions, reports, and categories.
+- Added glass panels, soft gradient mesh backgrounds, radial glow, depth shadows, and scan highlights.
+- Refined `/login` so it does not feel like an internal admin dashboard shell.
+- Added static visual marker verification for the premium shell, motion system, page stories, financial cockpit, and auth entry surface.
+- Preserved email/password auth, Google sign-in, sample data creation, toasts, redirects, routes, data behavior, child components, and suspense boundaries.
 
-Updated the 009 spec direction before implementation to target a premium cinematic savings-app visual system rather than a clean admin/blog-style layout.
+Validation passed locally:
 
-Captured current design risk:
+- node scripts/verify-009-visual-markers.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-- UI reads too much like admin dashboard plus blog-style hero plus documentation cards.
-- Target should be premium savings product, animated financial experience, and visual-first app landing.
-- `/login` should not feel like an internal admin dashboard shell.
-- BudgetFlow needs a dominant financial cockpit/app-preview visual, depth, glass surfaces, concise copy, floating cards/chips, and stronger premium auth composition.
+Build evidence:
 
-Evidence inspected:
-
-- src/app/dashboard/page.tsx
-- src/app/transactions/page.tsx
-- src/app/reports/page.tsx
-- src/app/categories/page.tsx
-- src/app/login/page.tsx
-- src/components/auth/login-form.tsx
-
-Next gate:
-
-Explicit implementation approval for 009.
+- 009 visual marker verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
