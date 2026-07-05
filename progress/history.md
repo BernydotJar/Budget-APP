@@ -193,3 +193,38 @@ Build evidence:
 - /reports route built successfully.
 - /categories route built successfully.
 - /login route built successfully.
+
+## 009-page-frame-consistency-evidence-first-ux-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Frame Lock
+
+Summary:
+
+- Reoriented BudgetFlow from admin/blog-style UX into a premium cinematic savings-app direction.
+- Replaced the authenticated admin-style sidebar with a premium top dock and shell chips.
+- Added premium motion-style visual markers and lightweight CSS motion.
+- Added financial cockpit/app-preview compositions across login, dashboard, transactions, reports, and categories.
+- Added glass panels, soft gradient mesh backgrounds, radial glow, depth shadows, and scan highlights.
+- Refined `/login` so it does not feel like an internal admin dashboard shell.
+- Added static visual marker verification for the premium shell, motion system, page stories, financial cockpit, and auth entry surface.
+- Preserved email/password auth, Google sign-in, sample data creation, toasts, redirects, routes, data behavior, child components, and suspense boundaries.
+
+Validation passed locally:
+
+- node scripts/verify-009-visual-markers.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- 009 visual marker verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.

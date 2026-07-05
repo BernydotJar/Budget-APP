@@ -18,7 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import { AlertCircle, BarChart3, Database, Loader2, ShieldCheck } from 'lucide-react';
+import { AlertCircle, BarChart3, Database, Loader2, ShieldCheck, Sparkles, TrendingUp, WalletCards } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { useRouter } from 'next/navigation';
 import { subDays } from 'date-fns';
@@ -203,147 +203,191 @@ export function LoginForm() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
-      <div className="grid w-full max-w-6xl gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <section className="space-y-6">
-          <div className="space-y-3">
-            <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">BudgetFlow access</p>
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Sign in to manage the numbers behind every budget decision.
-            </h1>
-            <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-              Track transactions, organize categories, and review dashboard evidence from one authenticated workspace.
-            </p>
+    <div className="admin-shell-free-auth budgetflow-motion-shell relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_15%_15%,rgba(59,130,246,0.20),transparent_28%),radial-gradient(circle_at_85%_5%,rgba(236,72,153,0.16),transparent_30%),linear-gradient(135deg,#f8fbff_0%,#edf3fb_45%,#f9f6fb_100%)] px-4 py-8 text-slate-950 sm:px-6 lg:px-8">
+      <div className="pointer-events-none absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-fuchsia-300/20 blur-3xl" />
+
+      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-7xl flex-col justify-center gap-8">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white shadow-2xl shadow-slate-900/20">
+              BF
+            </div>
+            <div>
+              <p className="text-base font-semibold tracking-tight">BudgetFlow</p>
+              <p className="text-sm text-slate-500">Premium savings cockpit</p>
+            </div>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Card>
-              <CardHeader className="pb-2">
-                <ShieldCheck className="mb-2 h-5 w-5 text-muted-foreground" />
-                <CardDescription>Secure access</CardDescription>
-                <CardTitle className="text-lg">Firebase auth</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Email/password and Google sign-in both route into the same budget workspace.</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <BarChart3 className="mb-2 h-5 w-5 text-muted-foreground" />
-                <CardDescription>After login</CardDescription>
-                <CardTitle className="text-lg">Dashboard first</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Successful authentication sends you directly to dashboard evidence and totals.</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <Database className="mb-2 h-5 w-5 text-muted-foreground" />
-                <CardDescription>New accounts</CardDescription>
-                <CardTitle className="text-lg">Sample data</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">Email sign-up adds starter categories and transactions so the app is usable immediately.</p>
-              </CardContent>
-            </Card>
+          <div className="hidden rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm backdrop-blur md:block">
+            Firebase-secured access
           </div>
-        </section>
+        </div>
 
-        <Card className="w-full shadow-sm">
-          <CardHeader>
-            <CardDescription>{isLogin ? 'Welcome back' : 'Create workspace'}</CardDescription>
-            <CardTitle className="text-2xl">{isLogin ? 'Login' : 'Sign Up'}</CardTitle>
-            <CardDescription>
-              {isLogin
-                ? 'Use your existing credentials to return to your dashboard.'
-                : 'Create an account and seed the app with starter budget data.'}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {!isLogin && (
-              <Alert>
-                <Database className="h-4 w-4" />
-                <AlertTitle>Sample data will be added</AlertTitle>
-                <AlertDescription>
-                  Sign-up creates starter categories and recent transactions for your new account. You can edit or delete them later.
-                </AlertDescription>
-              </Alert>
-            )}
-
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input placeholder="m@example.com" {...field} type="email" />
-                      </FormControl>
-                      <FormDescription>Used only to authenticate this budget workspace.</FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Password</FormLabel>
-                      <FormControl>
-                        <Input type="password" {...field} />
-                      </FormControl>
-                      <FormDescription>Use at least 6 characters.</FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" className="w-full" disabled={loading || googleLoading}>
-                  {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  {loading ? (isLogin ? 'Logging in...' : 'Creating account...') : (isLogin ? 'Login' : 'Sign Up')}
-                </Button>
-              </form>
-            </Form>
-
-            <div className="flex items-center gap-3">
-              <Separator className="flex-1" />
-              <span className="text-xs uppercase text-muted-foreground">Or continue with</span>
-              <Separator className="flex-1" />
+        <div className="grid items-center gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+          <section className="scroll-story space-y-8">
+            <div className="space-y-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-sm backdrop-blur">
+                <Sparkles className="h-3.5 w-3.5 text-sky-500" />
+                BudgetFlow access
+              </div>
+              <div className="space-y-4">
+                <h1 className="max-w-4xl text-5xl font-black tracking-[-0.06em] text-slate-950 sm:text-6xl lg:text-7xl">
+                  Command your budget before the month moves.
+                </h1>
+                <p className="max-w-2xl text-lg leading-8 text-slate-600">
+                  A focused entry into transactions, categories, reports, and dashboard evidence from one secure financial cockpit.
+                </p>
+              </div>
             </div>
 
-            <Button
-              variant="outline"
-              className="w-full"
-              onClick={handleGoogleSignIn}
-              disabled={loading || googleLoading}
-            >
-              {googleLoading ? (
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              ) : (
-                <GoogleIcon />
-              )}
-              {googleLoading ? 'Connecting...' : 'Google'}
-            </Button>
+            <div className="financial-cockpit relative max-w-3xl rounded-[2rem] border border-white/80 bg-white/55 p-4 shadow-2xl shadow-slate-900/10 backdrop-blur-xl">
+              <div className="rounded-[1.5rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-950/25">
+                <div className="flex items-center justify-between text-xs text-white/60">
+                  <span>Monthly signal</span>
+                  <span>Live workspace</span>
+                </div>
+                <div className="mt-6 grid gap-4 md:grid-cols-[1fr_0.8fr]">
+                  <div>
+                    <p className="text-sm text-white/60">Available focus</p>
+                    <p className="mt-1 text-4xl font-bold tracking-tight">$4,820</p>
+                    <div className="mt-5 space-y-3">
+                      <div className="h-2 rounded-full bg-white/10">
+                        <div className="h-2 w-3/4 rounded-full bg-cyan-300" />
+                      </div>
+                      <div className="h-2 rounded-full bg-white/10">
+                        <div className="h-2 w-1/2 rounded-full bg-fuchsia-300" />
+                      </div>
+                      <div className="h-2 rounded-full bg-white/10">
+                        <div className="h-2 w-2/3 rounded-full bg-emerald-300" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 p-4">
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/50">Next view</p>
+                    <p className="mt-2 text-2xl font-semibold">Dashboard</p>
+                    <p className="mt-2 text-sm text-white/60">Totals, category evidence, and report-ready history.</p>
+                  </div>
+                </div>
+              </div>
 
-            {error && (
-              <Alert variant="destructive">
-                <AlertCircle className="h-4 w-4" />
-                <AlertTitle>Authentication failed</AlertTitle>
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            )}
-          </CardContent>
-          <CardFooter className="flex flex-col items-center space-y-2">
-            <Button variant="link" onClick={toggleMode} className="text-sm">
-              {isLogin ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
-            </Button>
-          </CardFooter>
-        </Card>
+              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                <div className="glass-panel rounded-2xl border border-white/80 bg-white/70 p-4 shadow-sm backdrop-blur">
+                  <ShieldCheck className="h-5 w-5 text-sky-600" />
+                  <p className="mt-3 text-sm font-semibold">Secure gate</p>
+                  <p className="mt-1 text-xs text-slate-500">Email or Google.</p>
+                </div>
+                <div className="glass-panel rounded-2xl border border-white/80 bg-white/70 p-4 shadow-sm backdrop-blur">
+                  <TrendingUp className="h-5 w-5 text-fuchsia-600" />
+                  <p className="mt-3 text-sm font-semibold">Dashboard first</p>
+                  <p className="mt-1 text-xs text-slate-500">Evidence after login.</p>
+                </div>
+                <div className="glass-panel rounded-2xl border border-white/80 bg-white/70 p-4 shadow-sm backdrop-blur">
+                  <Database className="h-5 w-5 text-emerald-600" />
+                  <p className="mt-3 text-sm font-semibold">Starter data</p>
+                  <p className="mt-1 text-xs text-slate-500">Ready on sign-up.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Card className="glass-panel w-full rounded-[2rem] border-white/80 bg-white/75 shadow-2xl shadow-slate-900/12 backdrop-blur-xl">
+            <CardHeader className="space-y-3 pb-4">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
+                <WalletCards className="h-3.5 w-3.5" />
+                {isLogin ? 'Welcome back' : 'Create cockpit'}
+              </div>
+              <div>
+                <CardTitle className="text-3xl tracking-tight">{isLogin ? 'Enter BudgetFlow' : 'Start with sample signal'}</CardTitle>
+                <CardDescription className="mt-2 text-base">
+                  {isLogin
+                    ? 'Return to your dashboard, records, reports, and category setup.'
+                    : 'Create an account and seed the workspace with starter budget data.'}
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {!isLogin && (
+                <Alert className="border-sky-200 bg-sky-50/80">
+                  <Database className="h-4 w-4" />
+                  <AlertTitle>Sample data will be added</AlertTitle>
+                  <AlertDescription>
+                    Sign-up creates starter categories and recent transactions for your new account. You can edit or delete them later.
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input className="h-12 rounded-xl bg-white/80" placeholder="m@example.com" {...field} type="email" />
+                        </FormControl>
+                        <FormDescription>Used only to authenticate this budget workspace.</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <Input className="h-12 rounded-xl bg-white/80" type="password" {...field} />
+                        </FormControl>
+                        <FormDescription>Use at least 6 characters.</FormDescription>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <Button type="submit" className="h-12 w-full rounded-xl" disabled={loading || googleLoading}>
+                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {loading ? (isLogin ? 'Logging in...' : 'Creating account...') : (isLogin ? 'Login' : 'Sign Up')}
+                  </Button>
+                </form>
+              </Form>
+
+              <div className="flex items-center gap-3">
+                <Separator className="flex-1" />
+                <span className="text-xs uppercase text-muted-foreground">Or continue with</span>
+                <Separator className="flex-1" />
+              </div>
+
+              <Button
+                variant="outline"
+                className="h-12 w-full rounded-xl bg-white/70"
+                onClick={handleGoogleSignIn}
+                disabled={loading || googleLoading}
+              >
+                {googleLoading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <GoogleIcon />
+                )}
+                {googleLoading ? 'Connecting...' : 'Google'}
+              </Button>
+
+              {error && (
+                <Alert variant="destructive">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertTitle>Authentication failed</AlertTitle>
+                  <AlertDescription>{error}</AlertDescription>
+                </Alert>
+              )}
+            </CardContent>
+            <CardFooter className="flex flex-col items-center space-y-2">
+              <Button variant="link" onClick={toggleMode} className="text-sm">
+                {isLogin ? "Don't have an account? Sign Up" : 'Already have an account? Login'}
+              </Button>
+            </CardFooter>
+          </Card>
+        </div>
       </div>
     </div>
   );

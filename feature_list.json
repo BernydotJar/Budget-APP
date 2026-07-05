@@ -62,5 +62,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Refine the authenticated app shell and navigation with clearer hierarchy, active states, mobile behavior, and evidence-first navigation copy."
+  },
+  {
+    "id": "009-page-frame-consistency-evidence-first-ux-refinement",
+    "title": "Page Frame Consistency Evidence-First UX Refinement",
+    "codename": "Frame Lock",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Refine BudgetFlow into a premium cinematic savings-app experience with top-dock navigation, motion-style visual markers, financial cockpit frames, glass panels, and verified static coverage while preserving app behavior."
   }
 ]

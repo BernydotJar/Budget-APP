@@ -4,15 +4,6 @@ import './globals.css';
 import { AuthProvider } from '@/components/auth/auth-provider';
 import { QueryProvider } from '@/components/query-provider';
 import { Toaster } from '@/components/ui/toaster';
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarHeader,
-  SidebarTrigger,
-  SidebarContent,
-  SidebarInset,
-  SidebarFooter,
-} from '@/components/ui/sidebar';
 import { MainNav } from '@/components/main-nav';
 import { Suspense } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -39,48 +30,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} bg-[#f5f8fc] antialiased`}>
         <AuthProvider>
           <QueryProvider>
-            <SidebarProvider>
-              <Sidebar>
-                <SidebarHeader className="border-b border-sidebar-border p-4">
+            <div className="min-h-screen bg-[radial-gradient(circle_at_8%_0%,rgba(59,130,246,0.12),transparent_28%),radial-gradient(circle_at_92%_0%,rgba(236,72,153,0.10),transparent_28%),linear-gradient(180deg,#f8fbff_0%,#f3f7fb_48%,#ffffff_100%)]">
+              <header className="premium-top-dock sticky top-0 z-40 border-b border-white/70 bg-white/70 px-4 py-3 shadow-sm backdrop-blur-2xl sm:px-6">
+                <div className="mx-auto flex max-w-7xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-semibold text-primary-foreground">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white shadow-2xl shadow-slate-900/20">
                       BF
                     </div>
-                    <div className="min-w-0">
-                      <h2 className="truncate text-lg font-semibold text-primary">BudgetFlow</h2>
-                      <p className="truncate text-xs text-sidebar-foreground/70">Evidence-first budget workspace</p>
+                    <div>
+                      <p className="text-base font-semibold tracking-tight text-slate-950">BudgetFlow</p>
+                      <p className="text-xs text-slate-500 sm:text-sm">Premium savings cockpit</p>
                     </div>
                   </div>
-                </SidebarHeader>
-                <SidebarContent className="px-2 py-3">
-                  <Suspense fallback={<SidebarNavSkeleton />}>
+
+                  <Suspense fallback={<TopNavSkeleton />}>
                     <MainNav />
                   </Suspense>
-                </SidebarContent>
-                <SidebarFooter className="border-t border-sidebar-border p-4">
-                  <p className="text-xs text-sidebar-foreground/70">
-                    Review totals, records, reports, and setup from one authenticated shell.
-                  </p>
-                </SidebarFooter>
-              </Sidebar>
-              <SidebarInset>
-                <header className="sticky top-0 z-10 flex h-14 items-center justify-between gap-4 border-b bg-background/95 px-4 backdrop-blur supports-[backdrop-filter]:bg-background/80 sm:h-16 sm:px-6">
-                  <div className="flex items-center gap-3">
-                    <SidebarTrigger className="sm:hidden" />
-                    <div>
-                      <p className="text-sm font-medium">Budget workspace</p>
-                      <p className="hidden text-xs text-muted-foreground sm:block">
-                        Navigate between dashboard evidence, transaction activity, reports, and setup.
-                      </p>
-                    </div>
-                  </div>
-                </header>
-                <main className="flex-1 p-4 sm:px-6 sm:py-6">{children}</main>
-              </SidebarInset>
-            </SidebarProvider>
+                </div>
+              </header>
+
+              <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">{children}</main>
+            </div>
             <Toaster />
           </QueryProvider>
         </AuthProvider>
@@ -89,23 +62,13 @@ export default function RootLayout({
   );
 }
 
-function SidebarNavSkeleton() {
+function TopNavSkeleton() {
   return (
-    <div className="space-y-4 p-2">
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-20" />
-        <Skeleton className="h-8 w-full" />
-      </div>
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-16" />
-        <Skeleton className="h-8 w-full" />
-        <Skeleton className="h-8 w-full" />
-      </div>
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-16" />
-        <Skeleton className="h-8 w-full" />
-        <Skeleton className="h-8 w-full" />
-      </div>
+    <div className="flex gap-2 rounded-full border border-white/70 bg-white/65 p-1 shadow-sm backdrop-blur-xl">
+      <Skeleton className="h-9 w-28 rounded-full" />
+      <Skeleton className="h-9 w-32 rounded-full" />
+      <Skeleton className="h-9 w-24 rounded-full" />
+      <Skeleton className="h-9 w-28 rounded-full" />
     </div>
   );
 }
