@@ -19,6 +19,18 @@ const checks = [
     ],
   },
   {
+    file: 'src/app/layout.tsx',
+    markers: ['premium-top-dock', 'MainNav', 'Premium savings cockpit'],
+  },
+  {
+    file: 'src/components/main-nav.tsx',
+    markers: ['premium-shell-chips', 'motion-nav-chip', 'navItems'],
+  },
+  {
+    file: 'src/app/globals.css',
+    markers: ['budgetflow-rise-in', 'budgetflow-scan', 'prefers-reduced-motion'],
+  },
+  {
     file: 'src/app/dashboard/page.tsx',
     markers: ['budgetflow-motion-shell', 'scroll-story', 'financial-cockpit', 'app-preview-focus'],
   },
