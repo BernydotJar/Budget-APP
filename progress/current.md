@@ -1,31 +1,37 @@
 # Current Progress
 
-Active feature: none
+Active feature: 012-google-first-run-seed-parity-evidence-first-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: Orbit Seed
 
-011-first-run-sample-data-integrity-evidence-first-refinement
+Runtime code has not been changed for 012.
 
-Mode: SHIP  
-Status: done  
-Codename: Seed Vault
+## Source of truth
 
-## Validation
+- specs/012-google-first-run-seed-parity-evidence-first-refinement/requirements.md
+- specs/012-google-first-run-seed-parity-evidence-first-refinement/design.md
+- specs/012-google-first-run-seed-parity-evidence-first-refinement/tasks.md
 
-Passed locally:
+## Runtime evidence inspected
+
+- src/components/auth/login-form.tsx
+
+## Design intent
+
+012 extends first-run starter data parity to new Google Sign-In users. After 011, the starter data generator is safe for email/password sign-up, but the Google Sign-In path still skips starter data and sends new Google users directly to `/dashboard`.
+
+## Validation rule
+
+No feature moves to done unless this passes:
 
 ```bash
-node scripts/verify-011-sample-data-integrity.js
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-Evidence:
+If static Google seed parity coverage is added, it must also pass before done.
 
-- 011 sample data integrity verification passed.
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- `/categories`, `/dashboard`, `/login`, `/reports`, `/transactions`, `/transactions/new`, and `/transactions/edit/[id]` routes built successfully.
+## Next gate
 
-## Next rule
-
-Do not start a new runtime feature until the 011 pull request is merged into origin/main and local main is synchronized with origin/main.
+Approved: 012-google-first-run-seed-parity-evidence-first-refinement for implementation in SHIP mode.
