@@ -76,7 +76,7 @@
     "title": "Mobile Responsive Motion Polish Evidence-First UX Refinement",
     "codename": "Pocket Cinema",
     "mode": "SHIP",
-    "status": "spec_ready",
-    "summary": "Harden the premium top dock, chip navigation, responsive layout, and lightweight motion system so the cinematic BudgetFlow experience holds up on mobile and desktop."
+    "status": "done",
+    "summary": "Harden the premium top dock, chip navigation, responsive shell density, and lightweight motion system so the cinematic BudgetFlow experience holds up across mobile and desktop."
   }
 ]
