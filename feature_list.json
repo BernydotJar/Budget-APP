@@ -86,5 +86,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Harden the sign-up starter data path so first-run users receive valid categories and transactions, with static coverage for seed category and description consistency."
+  },
+  {
+    "id": "012-google-first-run-seed-parity-evidence-first-refinement",
+    "title": "Google First-Run Seed Parity Evidence-First Refinement",
+    "codename": "Orbit Seed",
+    "mode": "SHIP",
+    "status": "spec_ready",
+    "summary": "Extend first-run starter data behavior to new Google Sign-In users without seeding existing Google users again, preserving auth and Firestore behavior."
   }
 ]
