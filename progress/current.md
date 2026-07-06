@@ -1,31 +1,37 @@
 # Current Progress
 
-Active feature: none
+Active feature: 011-first-run-sample-data-integrity-evidence-first-refinement
 
-## Last completed feature
+Mode: SHIP
+Status: spec_ready
+Codename: Seed Vault
 
-010-mobile-responsive-motion-polish-evidence-first-ux-refinement
+Runtime code has not been changed for 011.
 
-Mode: SHIP  
-Status: done  
-Codename: Pocket Cinema
+## Source of truth
 
-## Validation
+- specs/011-first-run-sample-data-integrity-evidence-first-refinement/requirements.md
+- specs/011-first-run-sample-data-integrity-evidence-first-refinement/design.md
+- specs/011-first-run-sample-data-integrity-evidence-first-refinement/tasks.md
 
-Passed locally:
+## Runtime evidence inspected
+
+- src/components/auth/login-form.tsx
+
+## Design intent
+
+011 hardens the first-run sign-up sample data path. The current risk is category-description mapping drift inside the starter data generator, especially `Food Delivery` versus `FoodDelivery`, which can silently break or partially skip starter data creation.
+
+## Validation rule
+
+No feature moves to done unless this passes:
 
 ```bash
-node scripts/verify-010-mobile-motion-markers.js
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-Evidence:
+If static sample-data coverage is added, it must also pass before done.
 
-- 010 mobile motion marker verification passed.
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
-- `/categories`, `/dashboard`, `/login`, `/reports`, `/transactions`, `/transactions/new`, and `/transactions/edit/[id]` routes built successfully.
+## Next gate
 
-## Next rule
-
-Do not start a new runtime feature until the 010 pull request is merged into origin/main and local main is synchronized with origin/main.
+Approved: 011-first-run-sample-data-integrity-evidence-first-refinement for implementation in SHIP mode.
