@@ -53,7 +53,22 @@ const dummyCategories = [
   { name: 'Shopping', color: '#607D8B' },
   { name: 'Travel', color: '#009688' },
   { name: 'Food Delivery', color: '#FF9800' },
-];
+] as const;
+
+type DummyCategoryName = (typeof dummyCategories)[number]['name'];
+
+const categoryDescriptions: Record<DummyCategoryName, string[]> = {
+  Groceries: ['SuperMart', 'Local Grocer', 'Farm Fresh'],
+  Salary: ['Monthly Paycheck', 'Project Bonus'],
+  Utilities: ['Electricity Bill', 'Internet Bill', 'Water Bill'],
+  Rent: ['Monthly Rent Payment'],
+  Entertainment: ['Movie Tickets', 'Concert', 'Streaming Service'],
+  Transportation: ['Gas Station', 'Train Ticket', 'Bus Fare'],
+  Health: ['Pharmacy', 'Doctors Visit'],
+  Shopping: ['New Clothes', 'Electronics Store', 'Bookstore'],
+  Travel: ['Flight tickets', 'Hotel booking'],
+  'Food Delivery': ['Pizza Night', 'Sushi Delivery'],
+};
 
 const addDummyData = async (userId: string) => {
   try {
@@ -68,18 +83,6 @@ const addDummyData = async (userId: string) => {
     // 2. Create a list of dummy transactions
     const now = new Date();
     const transactionsToAdd = [];
-    const descriptions = {
-      Groceries: ['SuperMart', 'Local Grocer', 'Farm Fresh'],
-      Salary: ['Monthly Paycheck', 'Project Bonus'],
-      Utilities: ['Electricity Bill', 'Internet Bill', 'Water Bill'],
-      Rent: ['Monthly Rent Payment'],
-      Entertainment: ['Movie Tickets', 'Concert', 'Streaming Service'],
-      Transportation: ['Gas Station', 'Train Ticket', 'Bus Fare'],
-      Health: ['Pharmacy', 'Doctors Visit'],
-      Shopping: ['New Clothes', 'Electronics Store', 'Bookstore'],
-      Travel: ['Flight tickets', 'Hotel booking'],
-      FoodDelivery: ['Pizza Night', 'Sushi Delivery'],
-    };
 
     // Generate transactions for the last 3 months
     for (let month = 0; month < 3; month++) {
@@ -90,19 +93,21 @@ const addDummyData = async (userId: string) => {
         type: 'income',
         amount: 3500 + Math.random() * 500,
         categoryId: categoryIdMap.get('Salary'),
-        description: descriptions.Salary[month % descriptions.Salary.length],
+        description: categoryDescriptions.Salary[month % categoryDescriptions.Salary.length],
         date: subDays(date, 5),
       });
 
       // Expenses
       for (const cat of dummyCategories) {
         if (cat.name !== 'Salary') {
+          const descriptionList = categoryDescriptions[cat.name];
+
           for (let i = 0; i < (Math.random() * 3) + 1; i++) { // 1-4 transactions per category per month
             transactionsToAdd.push({
               type: 'expense',
               amount: Math.round((Math.random() * 100 + 10) * 100) / 100, // 10-110
               categoryId: categoryIdMap.get(cat.name),
-              description: descriptions[cat.name as keyof typeof descriptions][i % descriptions[cat.name as keyof typeof descriptions].length],
+              description: descriptionList[i % descriptionList.length],
               date: subDays(date, Math.floor(Math.random() * 28)), // Random day within the month
             });
           }
