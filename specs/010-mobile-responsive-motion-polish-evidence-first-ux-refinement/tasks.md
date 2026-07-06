@@ -3,7 +3,7 @@
 Feature: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 Codename: Pocket Cinema
 Mode: SHIP
-Status: implementation_ready_for_review
+Status: done
 
 ## Spec gate
 
@@ -34,7 +34,7 @@ Status: implementation_ready_for_review
 
 ## Review tasks
 
-- [ ] Run node scripts/verify-010-mobile-motion-markers.js.
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run node scripts/verify-010-mobile-motion-markers.js.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
