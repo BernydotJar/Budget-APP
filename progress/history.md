@@ -231,27 +231,34 @@ Build evidence:
 
 ## 010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Pocket Cinema
 
-Opened the Mobile Responsive Motion Polish feature from synchronized main after PR #9 merge.
+Summary:
 
-Runtime code has not been changed for 010.
+- Hardened the premium BudgetFlow top dock for mobile, tablet, and desktop density.
+- Improved shell chip navigation with mobile-safe horizontal overflow and snap behavior.
+- Added staggered chip motion through `data-motion-delay` markers.
+- Refined lightweight motion timing and scan animation pacing.
+- Added responsive cinema utility markers for future page-level polish.
+- Added static verification for top dock, shell chips, mobile-safe scrolling, motion markers, and reduced-motion support.
+- Preserved active route behavior, Firebase logout, auth behavior, routes, data behavior, mutations, toasts, redirects, package dependencies, and suspense boundaries.
 
-Evidence inspected:
+Validation passed locally:
 
-- src/app/layout.tsx
-- src/components/main-nav.tsx
+- node scripts/verify-010-mobile-motion-markers.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-Design focus:
+Build evidence:
 
-- premium top dock density.
-- shell chip navigation overflow.
-- responsive cinematic headings.
-- lightweight motion polish.
-- reduced-motion protection.
-
-Next gate:
-
-Approved: 010-mobile-responsive-motion-polish-evidence-first-ux-refinement for implementation in SHIP mode.
+- 010 mobile motion marker verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
