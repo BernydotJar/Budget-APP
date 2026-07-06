@@ -78,5 +78,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Harden the premium top dock, chip navigation, responsive shell density, and lightweight motion system so the cinematic BudgetFlow experience holds up across mobile and desktop."
+  },
+  {
+    "id": "011-first-run-sample-data-integrity-evidence-first-refinement",
+    "title": "First-Run Sample Data Integrity Evidence-First Refinement",
+    "codename": "Seed Vault",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Harden the sign-up starter data path so first-run users receive valid categories and transactions, with static coverage for seed category and description consistency."
   }
 ]

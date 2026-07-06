@@ -262,3 +262,38 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 011-first-run-sample-data-integrity-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Seed Vault
+
+Summary:
+
+- Hardened the first-run starter data generator used after email/password sign-up.
+- Fixed the `Food Delivery` starter category description mapping.
+- Replaced the legacy `FoodDelivery` key with an exact category-name mapping.
+- Added `Record<DummyCategoryName, string[]>` typing so starter category descriptions cannot drift silently.
+- Replaced unsafe dynamic description indexing with a category-safe `descriptionList` lookup.
+- Added static verification for starter category and description integrity.
+- Preserved Firestore writes to `categories` and `transactions`.
+- Preserved email/password login, email/password sign-up, Google sign-in, sign-up redirect, toasts, routes, and package dependencies.
+
+Validation passed locally:
+
+- node scripts/verify-011-sample-data-integrity.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- 011 sample data integrity verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
