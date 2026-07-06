@@ -262,3 +262,33 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 011-first-run-sample-data-integrity-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Seed Vault
+
+Opened the First-Run Sample Data Integrity refinement feature from synchronized main after PR #10 merge.
+
+Runtime code has not been changed for 011.
+
+Evidence inspected:
+
+- src/components/auth/login-form.tsx
+
+Design focus:
+
+- sign-up starter data integrity.
+- category-description mapping consistency.
+- static coverage for sample-data drift.
+- preserved auth, Firestore collection, toast, and redirect behavior.
+
+Identified risk:
+
+- Starter category name `Food Delivery` does not match description key `FoodDelivery`.
+- Current generator indexes `descriptions[cat.name]`, which can break starter transaction generation.
+
+Next gate:
+
+Approved: 011-first-run-sample-data-integrity-evidence-first-refinement for implementation in SHIP mode.
