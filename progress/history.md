@@ -265,30 +265,35 @@ Build evidence:
 
 ## 011-first-run-sample-data-integrity-evidence-first-refinement
 
-Status: spec_ready  
+Status: done  
 Mode: SHIP  
 Codename: Seed Vault
 
-Opened the First-Run Sample Data Integrity refinement feature from synchronized main after PR #10 merge.
+Summary:
 
-Runtime code has not been changed for 011.
+- Hardened the first-run starter data generator used after email/password sign-up.
+- Fixed the `Food Delivery` starter category description mapping.
+- Replaced the legacy `FoodDelivery` key with an exact category-name mapping.
+- Added `Record<DummyCategoryName, string[]>` typing so starter category descriptions cannot drift silently.
+- Replaced unsafe dynamic description indexing with a category-safe `descriptionList` lookup.
+- Added static verification for starter category and description integrity.
+- Preserved Firestore writes to `categories` and `transactions`.
+- Preserved email/password login, email/password sign-up, Google sign-in, sign-up redirect, toasts, routes, and package dependencies.
 
-Evidence inspected:
+Validation passed locally:
 
-- src/components/auth/login-form.tsx
+- node scripts/verify-011-sample-data-integrity.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
 
-Design focus:
+Build evidence:
 
-- sign-up starter data integrity.
-- category-description mapping consistency.
-- static coverage for sample-data drift.
-- preserved auth, Firestore collection, toast, and redirect behavior.
-
-Identified risk:
-
-- Starter category name `Food Delivery` does not match description key `FoodDelivery`.
-- Current generator indexes `descriptions[cat.name]`, which can break starter transaction generation.
-
-Next gate:
-
-Approved: 011-first-run-sample-data-integrity-evidence-first-refinement for implementation in SHIP mode.
+- 011 sample data integrity verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
