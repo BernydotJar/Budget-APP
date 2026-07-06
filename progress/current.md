@@ -4,28 +4,28 @@ Active feature: none
 
 ## Last completed feature
 
-009-page-frame-consistency-evidence-first-ux-refinement
+010-mobile-responsive-motion-polish-evidence-first-ux-refinement
 
 Mode: SHIP  
 Status: done  
-Codename: Frame Lock
+Codename: Pocket Cinema
 
 ## Validation
 
 Passed locally:
 
 ```bash
-node scripts/verify-009-visual-markers.js
+node scripts/verify-010-mobile-motion-markers.js
 rm -rf .next && npm run typecheck && npm run build
 ```
 
 Evidence:
 
-- 009 visual marker verification passed.
+- 010 mobile motion marker verification passed.
 - TypeScript check passed with `tsc --noEmit`.
 - Next.js production build compiled successfully.
 - `/categories`, `/dashboard`, `/login`, `/reports`, `/transactions`, `/transactions/new`, and `/transactions/edit/[id]` routes built successfully.
 
 ## Next rule
 
-Do not start a new runtime feature until the 009 pull request is merged into origin/main and local main is synchronized with origin/main.
+Do not start a new runtime feature until the 010 pull request is merged into origin/main and local main is synchronized with origin/main.
