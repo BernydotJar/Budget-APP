@@ -297,3 +297,34 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 012-google-first-run-seed-parity-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Orbit Seed
+
+Opened the Google First-Run Seed Parity refinement feature from synchronized main after PR #11 merge.
+
+Runtime code has not been changed for 012.
+
+Evidence inspected:
+
+- src/components/auth/login-form.tsx
+
+Design focus:
+
+- Google Sign-In new-user detection.
+- starter data parity for new Google users.
+- no duplicate starter data for existing Google users.
+- preserved email/password login and sign-up behavior.
+- preserved Firestore collection targets, toasts, and redirect behavior.
+
+Identified gap:
+
+- Email/password sign-up runs `addDummyData(user.uid)`.
+- Google Sign-In currently skips starter data and redirects directly to `/dashboard`.
+
+Next gate:
+
+Approved: 012-google-first-run-seed-parity-evidence-first-refinement for implementation in SHIP mode.
