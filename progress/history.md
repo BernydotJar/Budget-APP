@@ -626,3 +626,63 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+
+## 017-high-audit-risk-triage-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Risk Ledger
+
+Opened High Audit Risk Triage feature from synchronized main after PR #16 merge.
+
+Runtime code has not been changed for 017.
+
+Evidence inspected:
+
+- npm audit residual high/moderate/low findings.
+- no critical vulnerabilities remain.
+
+Design focus:
+
+- produce machine-readable audit evidence.
+- avoid unsafe downgrade/major package fixes.
+- preserve app and package behavior.
+
+
+## 017-high-audit-risk-triage-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Risk Ledger
+
+Summary:
+
+- Added `scripts/verify-017-audit-risk-triage.js`.
+- Generated persistent machine-readable audit evidence at `progress/audit-017-risk-triage.json`.
+- Confirmed critical vulnerabilities remain zero.
+- Captured high-severity packages, unsafe/major fix paths, and safe-fix candidates for later remediation.
+- Preserved app source behavior and package dependencies.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-017-audit-risk-triage.js: passed
+- node scripts/verify-016-ci-quality-gates.js: passed
+- node scripts/verify-015-env-contract.js: passed
+- node scripts/verify-013-next-security-patch.js: passed
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- node scripts/verify-014-no-critical-audit.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
