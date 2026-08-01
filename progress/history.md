@@ -368,3 +368,71 @@ Build evidence:
 Environment note:
 
 - Cloud Sandbox used a local ignored `.env.local` with dummy public Firebase-shaped values because the repository does not commit environment files. No credentials were committed.
+
+
+## 013-next-security-patch-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Patch Harbor
+
+Opened the Next Security Patch refinement feature from synchronized main after PR #12 merge.
+
+Runtime code has not been changed for 013.
+
+Evidence inspected:
+
+- package.json
+- package-lock.json
+- npm audit critical findings
+
+Design focus:
+
+- localized Next.js security patch.
+- no broad audit fix or unrelated dependency churn.
+- preserve application behavior.
+- deterministic validation through existing static verifiers, typecheck, build, and audit.
+
+
+## 013-next-security-patch-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Patch Harbor
+
+Summary:
+
+- Patched Next.js from 15.2.3 to 15.5.22 using a localized `npm install next@15.5.22 --save-exact`.
+- Updated package-lock.json consistently.
+- Preserved application source behavior, routes, auth behavior, Firestore behavior, and package scripts.
+- Added static verification for the pinned Next security patch.
+- Avoided broad `npm audit fix` because its dry-run introduced unrelated dependency churn.
+- Confirmed the npm audit critical finding for `next` is no longer present.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-013-next-security-patch.js: passed
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully on Next.js 15.5.22.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
+
+Residual risk:
+
+- npm audit critical findings remain for non-Next packages: form-data, handlebars, protobufjs, websocket-driver.
+- These findings are dependency-chain issues through Genkit/Firebase and require a separate remediation node.
+
+Environment note:
+
+- Cloud Sandbox used a local ignored `.env.local` with dummy public Firebase-shaped values because the repository does not commit environment files. No credentials were committed.
