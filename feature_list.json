@@ -102,5 +102,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Patch Next.js from 15.2.3 to the npm-audit recommended 15.5.22 security release while preserving application behavior and deterministic gates."
+  },
+  {
+    "id": "014-transitive-critical-dependency-remediation-evidence-first-refinement",
+    "title": "Transitive Critical Dependency Remediation Evidence-First Refinement",
+    "codename": "Dependency Quarantine",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Remediate residual npm audit critical findings by updating Genkit/Firebase-related dependency chains within non-major ranges, preserving app behavior."
   }
 ]
