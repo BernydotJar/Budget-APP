@@ -94,5 +94,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Extend first-run starter data behavior to new Google Sign-In users without seeding existing Google users again, preserving auth and Firestore behavior."
+  },
+  {
+    "id": "013-next-security-patch-evidence-first-refinement",
+    "title": "Next Security Patch Evidence-First Refinement",
+    "codename": "Patch Harbor",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Patch Next.js from 15.2.3 to the npm-audit recommended 15.5.22 security release while preserving application behavior and deterministic gates."
   }
 ]
