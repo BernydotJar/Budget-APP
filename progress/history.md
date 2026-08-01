@@ -504,3 +504,62 @@ Audit evidence:
 Residual risk:
 
 - High/moderate/low vulnerabilities remain and can be addressed by a later non-critical hardening node.
+
+
+## 015-env-contract-verification-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Config Beacon
+
+Opened the Environment Contract Verification feature from synchronized main after PR #14 merge.
+
+Runtime code has not been changed for 015.
+
+Evidence inspected:
+
+- src/firebase.ts
+- README.md
+- .gitignore
+
+Design focus:
+
+- document required Firebase public env variables.
+- add static verification for env contract drift.
+- preserve runtime behavior and avoid secrets.
+
+
+## 015-env-contract-verification-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Config Beacon
+
+Summary:
+
+- Added `.env.example` with all Firebase public configuration keys consumed by `src/firebase.ts`.
+- Added README instructions to copy `.env.example` to `.env.local`.
+- Added warning not to place Firebase Admin SDK private keys or service account credentials in `.env.local`.
+- Added static verifier `scripts/verify-015-env-contract.js` to prevent env contract drift.
+- Preserved runtime source behavior and package dependencies.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-015-env-contract.js: passed
+- node scripts/verify-013-next-security-patch.js: passed
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- node scripts/verify-014-no-critical-audit.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.

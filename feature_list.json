@@ -110,5 +110,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Remediate residual npm audit critical findings by updating Genkit/Firebase-related dependency chains within non-major ranges, preserving app behavior."
+  },
+  {
+    "id": "015-env-contract-verification-evidence-first-refinement",
+    "title": "Environment Contract Verification Evidence-First Refinement",
+    "codename": "Config Beacon",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Document and verify the required Firebase public environment contract so builds and deployments fail less opaquely."
   }
 ]
