@@ -1,0 +1,46 @@
+name: CI Quality Gates
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    name: Verify Graph Harness Gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase public env placeholders
+        run: cp .env.example .env.local
+
+      - name: Run static verification gates
+        run: |
+          node scripts/verify-015-env-contract.js
+          node scripts/verify-013-next-security-patch.js
+          node scripts/verify-011-sample-data-integrity.js
+          node scripts/verify-012-google-seed-parity.js
+          node scripts/verify-014-no-critical-audit.js
+          node scripts/verify-016-ci-quality-gates.js
+
+      - name: Typecheck
+        run: |
+          rm -rf .next
+          npm run typecheck
+
+      - name: Build
+        run: npm run build

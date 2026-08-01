@@ -118,5 +118,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Document and verify the required Firebase public environment contract so builds and deployments fail less opaquely."
+  },
+  {
+    "id": "016-ci-quality-gates-evidence-first-refinement",
+    "title": "CI Quality Gates Evidence-First Refinement",
+    "codename": "Gatehouse",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Add a GitHub Actions workflow that runs the deterministic Graph Harness quality gates on pull requests and main pushes."
   }
 ]

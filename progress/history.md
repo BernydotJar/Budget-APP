@@ -563,3 +563,66 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+
+## 016-ci-quality-gates-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Gatehouse
+
+Opened CI Quality Gates feature from synchronized main after PR #15 merge.
+
+Runtime code has not been changed for 016.
+
+Evidence inspected:
+
+- No `.github/workflows` files present.
+- Existing verifier scripts.
+- package.json scripts.
+
+Design focus:
+
+- automate deterministic release gates on PR and main push.
+- use `.env.example` placeholders for build-time env.
+- avoid secrets and deployment behavior.
+
+
+## 016-ci-quality-gates-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Gatehouse
+
+Summary:
+
+- Added GitHub Actions CI workflow at `.github/workflows/ci.yml`.
+- CI runs on pull requests and main pushes.
+- CI installs dependencies with `npm ci`.
+- CI copies `.env.example` to `.env.local` for Firebase public placeholder config.
+- CI runs Graph Harness static verifiers.
+- CI runs explicit TypeScript check and production build.
+- Added static verifier `scripts/verify-016-ci-quality-gates.js`.
+- Preserved runtime source behavior and package dependencies.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-016-ci-quality-gates.js: passed
+- node scripts/verify-015-env-contract.js: passed
+- node scripts/verify-013-next-security-patch.js: passed
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- node scripts/verify-014-no-critical-audit.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
