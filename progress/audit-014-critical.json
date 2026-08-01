@@ -1,0 +1,12 @@
+{
+  "generatedBy": "scripts/verify-014-no-critical-audit.js",
+  "critical": 0,
+  "vulnerabilities": {
+    "info": 0,
+    "low": 1,
+    "moderate": 55,
+    "high": 19,
+    "critical": 0,
+    "total": 75
+  }
+}

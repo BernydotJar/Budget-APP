@@ -4,11 +4,11 @@ Active feature: none
 
 ## Last completed feature
 
-013-next-security-patch-evidence-first-refinement
+014-transitive-critical-dependency-remediation-evidence-first-refinement
 
 Mode: SHIP  
 Status: done  
-Codename: Patch Harbor
+Codename: Dependency Quarantine
 
 ## Validation
 
@@ -18,8 +18,8 @@ Passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
 node scripts/verify-013-next-security-patch.js
 node scripts/verify-011-sample-data-integrity.js
 node scripts/verify-012-google-seed-parity.js
+node scripts/verify-014-no-critical-audit.js
 rm -rf .next && npm run typecheck && npm run build
-npm audit --audit-level=critical
 ```
 
 Evidence:
@@ -27,14 +27,16 @@ Evidence:
 - 013 Next security patch verification passed.
 - 011 sample data integrity verification passed.
 - 012 Google seed parity verification passed.
+- 014 no critical audit verification passed.
 - TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully on Next.js 15.5.22.
-- The npm audit critical finding for `next` is no longer present.
+- Next.js production build compiled successfully.
+- `npm audit --audit-level=critical` returned zero critical vulnerabilities through the verifier.
+- Audit evidence written to `progress/audit-014-critical.json`.
 
 Residual risk:
 
-- `npm audit --audit-level=critical` still reports non-Next criticals: `form-data`, `handlebars`, `protobufjs`, `websocket-driver`.
-- Those findings are routed to a future dependency remediation node because they involve Genkit/Firebase transitive chains and should not be mixed with the localized Next patch.
+- Critical vulnerabilities are cleared.
+- High/moderate/low audit findings remain and can be addressed by a later hardening node.
 
 Environment note:
 
@@ -42,4 +44,4 @@ Environment note:
 
 ## Next rule
 
-Do not start a new runtime feature until the 013 pull request is merged into origin/main and local main is synchronized with origin/main.
+Do not start a new runtime feature until the 014 pull request is merged into origin/main and local main is synchronized with origin/main.

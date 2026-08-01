@@ -436,3 +436,71 @@ Residual risk:
 Environment note:
 
 - Cloud Sandbox used a local ignored `.env.local` with dummy public Firebase-shaped values because the repository does not commit environment files. No credentials were committed.
+
+
+## 014-transitive-critical-dependency-remediation-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Dependency Quarantine
+
+Opened the Transitive Critical Dependency Remediation feature from synchronized main after PR #13 merge.
+
+Runtime code has not been changed for 014.
+
+Evidence inspected:
+
+- npm audit critical findings after 013.
+- npm outdated candidate package versions.
+
+Design focus:
+
+- remediate residual non-Next critical packages.
+- constrain updates to non-major package ranges.
+- preserve application behavior.
+
+
+## 014-transitive-critical-dependency-remediation-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Dependency Quarantine
+
+Summary:
+
+- Remediated residual non-Next critical npm audit findings.
+- Updated Firebase/Genkit dependency chains without major upgrades.
+- Updated package-lock.json consistently.
+- Added static verifier `scripts/verify-014-no-critical-audit.js`.
+- Added persistent audit evidence at `progress/audit-014-critical.json`.
+- Preserved application source behavior, routes, auth behavior, Firestore behavior, and package scripts.
+- Reduced critical vulnerabilities from four residual findings to zero.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-013-next-security-patch.js: passed
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- node scripts/verify-014-no-critical-audit.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully on Next.js 15.5.22.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
+
+Audit evidence:
+
+- npm audit critical count: 0.
+- Evidence file: progress/audit-014-critical.json.
+
+Residual risk:
+
+- High/moderate/low vulnerabilities remain and can be addressed by a later non-critical hardening node.
