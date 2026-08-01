@@ -126,5 +126,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Add a GitHub Actions workflow that runs the deterministic Graph Harness quality gates on pull requests and main pushes."
+  },
+  {
+    "id": "017-high-audit-risk-triage-evidence-first-refinement",
+    "title": "High Audit Risk Triage Evidence-First Refinement",
+    "codename": "Risk Ledger",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Generate persistent machine-readable npm audit triage evidence for residual high/moderate/low findings after critical vulnerabilities were cleared."
   }
 ]
