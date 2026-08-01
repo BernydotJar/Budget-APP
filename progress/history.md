@@ -297,3 +297,74 @@ Build evidence:
 - /transactions route built successfully.
 - /transactions/new route built successfully.
 - /transactions/edit/[id] route built successfully.
+
+## 012-google-first-run-seed-parity-evidence-first-refinement
+
+Status: spec_ready  
+Mode: SHIP  
+Codename: Orbit Seed
+
+Opened the Google First-Run Seed Parity refinement feature from synchronized main after PR #11 merge.
+
+Runtime code has not been changed for 012.
+
+Evidence inspected:
+
+- src/components/auth/login-form.tsx
+
+Design focus:
+
+- Google Sign-In new-user detection.
+- starter data parity for new Google users.
+- no duplicate starter data for existing Google users.
+- preserved email/password login and sign-up behavior.
+- preserved Firestore collection targets, toasts, and redirect behavior.
+
+Identified gap:
+
+- Email/password sign-up runs `addDummyData(user.uid)`.
+- Google Sign-In currently skips starter data and redirects directly to `/dashboard`.
+
+Next gate:
+
+Approved: 012-google-first-run-seed-parity-evidence-first-refinement for implementation in SHIP mode.
+
+
+## 012-google-first-run-seed-parity-evidence-first-refinement
+
+Status: done  
+Mode: SHIP  
+Codename: Orbit Seed
+
+Summary:
+
+- Extended first-run starter data parity to new Google Sign-In users.
+- Added Firebase `getAdditionalUserInfo` based new-user detection inside the Google popup flow.
+- Reused the hardened `addDummyData(user.uid)` seed generator from 011.
+- Guarded starter data creation so existing Google users are not seeded again on repeated sign-ins.
+- Preserved email/password login, email/password sign-up seed behavior, Google popup sign-in, redirect to `/dashboard`, Firestore collection targets, toast pattern, routes, and package dependencies.
+- Added static verification for Google first-run seed parity.
+
+Validation passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+
+- node scripts/verify-011-sample-data-integrity.js: passed
+- node scripts/verify-012-google-seed-parity.js: passed
+- rm -rf .next && npm run typecheck && npm run build: passed
+
+Build evidence:
+
+- 011 sample data integrity verification passed.
+- 012 Google seed parity verification passed.
+- TypeScript check passed with tsc --noEmit.
+- Next.js production build compiled successfully.
+- /categories route built successfully.
+- /dashboard route built successfully.
+- /login route built successfully.
+- /reports route built successfully.
+- /transactions route built successfully.
+- /transactions/new route built successfully.
+- /transactions/edit/[id] route built successfully.
+
+Environment note:
+
+- Cloud Sandbox used a local ignored `.env.local` with dummy public Firebase-shaped values because the repository does not commit environment files. No credentials were committed.
