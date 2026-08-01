@@ -92,7 +92,7 @@
     "title": "Google First-Run Seed Parity Evidence-First Refinement",
     "codename": "Orbit Seed",
     "mode": "SHIP",
-    "status": "spec_ready",
+    "status": "done",
     "summary": "Extend first-run starter data behavior to new Google Sign-In users without seeding existing Google users again, preserving auth and Firestore behavior."
   }
 ]

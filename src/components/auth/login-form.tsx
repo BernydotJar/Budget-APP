@@ -10,6 +10,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  getAdditionalUserInfo,
 } from 'firebase/auth';
 import { auth, db } from '@/firebase';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
@@ -184,10 +185,17 @@ export function LoginForm() {
     setError(null);
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      toast({ title: 'Google Sign-In Successful', description: 'Welcome!' });
-      // Here you might want to check if the user is new and add dummy data.
-      // For simplicity, we'll skip that for Google Sign-In for now.
+      const userCredential = await signInWithPopup(auth, provider);
+      const isNewGoogleUser = getAdditionalUserInfo(userCredential)?.isNewUser === true;
+
+      if (isNewGoogleUser) {
+        toast({ title: 'Google Sign-In Successful', description: 'Adding sample data for your new workspace...' });
+        await addDummyData(userCredential.user.uid);
+        toast({ title: 'Welcome to BudgetFlow!', description: 'Sample data has been added to get you started.' });
+      } else {
+        toast({ title: 'Google Sign-In Successful', description: 'Welcome!' });
+      }
+
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.message);

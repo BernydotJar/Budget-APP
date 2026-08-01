@@ -1,37 +1,37 @@
 # Current Progress
 
-Active feature: 012-google-first-run-seed-parity-evidence-first-refinement
+Active feature: none
 
-Mode: SHIP
-Status: spec_ready
+## Last completed feature
+
+012-google-first-run-seed-parity-evidence-first-refinement
+
+Mode: SHIP  
+Status: done  
 Codename: Orbit Seed
 
-Runtime code has not been changed for 012.
+## Validation
 
-## Source of truth
-
-- specs/012-google-first-run-seed-parity-evidence-first-refinement/requirements.md
-- specs/012-google-first-run-seed-parity-evidence-first-refinement/design.md
-- specs/012-google-first-run-seed-parity-evidence-first-refinement/tasks.md
-
-## Runtime evidence inspected
-
-- src/components/auth/login-form.tsx
-
-## Design intent
-
-012 extends first-run starter data parity to new Google Sign-In users. After 011, the starter data generator is safe for email/password sign-up, but the Google Sign-In path still skips starter data and sends new Google users directly to `/dashboard`.
-
-## Validation rule
-
-No feature moves to done unless this passes:
+Passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
 
 ```bash
+node scripts/verify-011-sample-data-integrity.js
+node scripts/verify-012-google-seed-parity.js
 rm -rf .next && npm run typecheck && npm run build
 ```
 
-If static Google seed parity coverage is added, it must also pass before done.
+Evidence:
 
-## Next gate
+- 011 sample data integrity verification passed.
+- 012 Google seed parity verification passed.
+- TypeScript check passed with `tsc --noEmit`.
+- Next.js production build compiled successfully.
+- `/categories`, `/dashboard`, `/login`, `/reports`, `/transactions`, `/transactions/new`, and `/transactions/edit/[id]` routes built successfully.
 
-Approved: 012-google-first-run-seed-parity-evidence-first-refinement for implementation in SHIP mode.
+Environment note:
+
+- Cloud Sandbox used a local ignored `.env.local` with dummy public Firebase-shaped values because the repository does not commit environment files. No credentials were committed.
+
+## Next rule
+
+Do not start a new runtime feature until the 012 pull request is merged into origin/main and local main is synchronized with origin/main.

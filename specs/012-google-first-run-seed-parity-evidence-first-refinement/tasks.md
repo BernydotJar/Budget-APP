@@ -3,7 +3,7 @@
 Feature: 012-google-first-run-seed-parity-evidence-first-refinement
 Codename: Orbit Seed
 Mode: SHIP
-Status: spec_ready
+Status: done
 
 ## Spec gate
 
@@ -19,25 +19,24 @@ Status: spec_ready
 
 ## Approval gate
 
-Required approval:
-
-Approved: 012-google-first-run-seed-parity-evidence-first-refinement for implementation in SHIP mode.
+- [x] Implementation approved in SHIP mode through Graph Harness SDLC continuous execution instruction.
 
 ## Implementation tasks after approval
 
-- [ ] Detect new Google Sign-In users.
-- [ ] Seed starter data for new Google Sign-In users.
-- [ ] Avoid seeding existing Google users again.
-- [ ] Preserve email/password login behavior.
-- [ ] Preserve email/password sign-up seed behavior.
-- [ ] Preserve Google popup sign-in behavior.
-- [ ] Preserve redirect to `/dashboard`.
-- [ ] Preserve Firestore collection targets.
-- [ ] Add static verification for Google first-run seed parity.
+- [x] Detect new Google Sign-In users.
+- [x] Seed starter data for new Google Sign-In users.
+- [x] Avoid seeding existing Google users again.
+- [x] Preserve email/password login behavior.
+- [x] Preserve email/password sign-up seed behavior.
+- [x] Preserve Google popup sign-in behavior.
+- [x] Preserve redirect to `/dashboard`.
+- [x] Preserve Firestore collection targets.
+- [x] Add static verification for Google first-run seed parity.
 
 ## Review tasks
 
-- [ ] Run node scripts/verify-012-google-seed-parity.js if added.
-- [ ] Run rm -rf .next && npm run typecheck && npm run build.
-- [ ] Capture review evidence.
-- [ ] Move feature to done after validation passes.
+- [x] Run node scripts/verify-012-google-seed-parity.js.
+- [x] Run node scripts/verify-011-sample-data-integrity.js.
+- [x] Run rm -rf .next && npm run typecheck && npm run build.
+- [x] Capture review evidence.
+- [x] Move feature to done after validation passes.
