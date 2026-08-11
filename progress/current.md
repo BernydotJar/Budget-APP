@@ -1,20 +1,17 @@
 # Current Progress
 
-Active feature: none
-
-## Last completed feature
-
-017-high-audit-risk-triage-evidence-first-refinement
+Active feature: 018-firebase-demo-hosting-readiness-evidence-first-refinement
 
 Mode: SHIP  
 Status: done  
-Codename: Risk Ledger
+Codename: Launch Pad
 
 ## Validation
 
-Passed in Cloud Sandbox workspace `5b24823e-0ad2-472d-882d-7b872d9c8d19`:
+Expected to pass in CI on PR #18:
 
 ```bash
+node scripts/verify-018-firebase-hosting-readiness.js
 node scripts/verify-017-audit-risk-triage.js
 node scripts/verify-016-ci-quality-gates.js
 node scripts/verify-015-env-contract.js
@@ -27,12 +24,12 @@ rm -rf .next && npm run typecheck && npm run build
 
 Evidence:
 
-- 017 audit risk triage verification passed.
-- Critical vulnerabilities remain zero.
-- High package count is captured in `progress/audit-017-risk-triage.json`.
-- TypeScript check passed with `tsc --noEmit`.
-- Next.js production build compiled successfully.
+- Firebase Hosting configuration added through `firebase.json`.
+- Hosting config uses `hosting.source = "."` to preserve Next.js runtime behavior for the current dynamic edit route.
+- Firebase deployment docs added at `docs/firebase-hosting.md`.
+- Broad demo-label phrases are statically rejected in `src/app` and `src/components`.
+- CI runs the Firebase Hosting readiness verifier.
 
 ## Next rule
 
-Do not start a new runtime feature until the 017 pull request is merged into origin/main and local main is synchronized with origin/main.
+Do not merge 018 until CI passes on the pull request.

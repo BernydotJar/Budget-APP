@@ -134,5 +134,13 @@
     "mode": "SHIP",
     "status": "done",
     "summary": "Generate persistent machine-readable npm audit triage evidence for residual high/moderate/low findings after critical vulnerabilities were cleared."
+  },
+  {
+    "id": "018-firebase-demo-hosting-readiness-evidence-first-refinement",
+    "title": "Firebase Demo Hosting Readiness Evidence-First Refinement",
+    "codename": "Launch Pad",
+    "mode": "SHIP",
+    "status": "done",
+    "summary": "Prepare BudgetFlow for same-day Firebase Hosting review links backed by Firebase Auth and Firestore without adding broad demo labels to the product UI."
   }
 ]
