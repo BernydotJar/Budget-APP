@@ -1,6 +1,10 @@
 # Current Progress
 
-Active feature: 018-firebase-demo-hosting-readiness-evidence-first-refinement
+Active feature: none
+
+## Last completed feature
+
+018-firebase-demo-hosting-readiness-evidence-first-refinement
 
 Mode: SHIP  
 Status: done  
@@ -8,7 +12,7 @@ Codename: Launch Pad
 
 ## Validation
 
-Expected to pass in CI on PR #18:
+Passed in CI on PR #18:
 
 ```bash
 node scripts/verify-018-firebase-hosting-readiness.js
@@ -28,8 +32,9 @@ Evidence:
 - Hosting config uses `hosting.source = "."` to preserve Next.js runtime behavior for the current dynamic edit route.
 - Firebase deployment docs added at `docs/firebase-hosting.md`.
 - Broad demo-label phrases are statically rejected in `src/app` and `src/components`.
-- CI runs the Firebase Hosting readiness verifier.
+- CI ran and passed on PR #18 before merge.
+- PR #18 merged into `main` with merge commit `54240668d12705855c75530afdc2ce91f286d3a8`.
 
 ## Next rule
 
-Do not merge 018 until CI passes on the pull request.
+Main is ready for Firebase Hosting configuration and same-day deployment using the documented commands in `docs/firebase-hosting.md`.
