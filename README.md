@@ -30,3 +30,8 @@ Validate the environment contract with:
 node scripts/verify-015-env-contract.js
 ```
 
+## Firebase Hosting
+
+BudgetFlow is configured for Firebase Hosting using `firebase.json`. Use this path for stakeholder review links without adding broad environment labeling to the product UI.
+
+Deployment notes are in [`docs/firebase-hosting.md`](docs/firebase-hosting.md).
